@@ -14,7 +14,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 =============================================================
 
-## 🌟 how to work with git
+## 🌟 how to BRANCH
 
 =============================================================
 
@@ -50,7 +50,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 ===============================================================
 
-## 🎊 If you want the latest changes when you are in YOUR OWN BRANCH
+## 🎊 If you want load the latest changes into YOUR BRANCH
 
 ===============================================================
 

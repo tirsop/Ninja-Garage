@@ -1,7 +1,8 @@
 Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
 
 =============================================================
-how to work with git
+🌟 how to work with git
+
 =============================================================
 
 1: "git checkout -b BRANCH-NAME"
@@ -29,7 +30,8 @@ how to work with git
 11: "git branch" to see if the branch was successfully deleted
 
 ===============================================================
-If you want the latest changes when you are in YOUR OWN BRANCH
+🎊 If you want the latest changes when you are in YOUR OWN BRANCH
+
 ===============================================================
 
 1: move to master

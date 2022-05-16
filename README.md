@@ -16,11 +16,11 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 =============================================================
 
-1: "**git checkout -b BRANCH-NAME**"
+1: "**git checkout -b BRANCH-NAME**" to create YOUR OWN BRANCH to work with
 
 2: "**git branch**" to see the list of existing branches
 
-3: work on stuff in the branch
+3: work on stuff in YOUR branch (NOT MASTER!!!)
 
 4: "**git add**" "**git commit**" Make sure you are NOT in MASTER branch
 

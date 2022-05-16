@@ -34,7 +34,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 8: "**git status**" to make sure the status is CLEAN
 
-9: Go to github page on browser and click "Pull request"
+9: "**gh browse**" to go to github page on browser and click "Pull request"
 
 10: If there's conflict, discuss with teamates.
 

@@ -48,10 +48,10 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 ===============================================================
 
-1: **git checkout master** to move to master
+1: "**git checkout master**" to move to master
 
-2: **git pull origin master**
+2: "**git pull origin master**"
 
-3: **git checkout YOUR-BRANCH** to come back to your own branch
+3: "**git checkout YOUR-BRANCH**" to come back to your own branch
 
 4: "**git merge master**"

@@ -5,4 +5,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
   resources :bookings, only: [:index, :update]
+  namespace :owner do
+    resources :bookings, only: :index
+  end
 end

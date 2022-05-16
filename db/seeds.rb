@@ -13,8 +13,8 @@ puts "Creating users..."
   User.create!(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  emails: Faker::Internet.email,
-  password: Faker::Faker::IDNumber
+  emails: "#{rand(11..20)}@email.com",
+  password: 123123
   )
 end
 puts "...created #{User.count} guest users."

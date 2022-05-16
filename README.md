@@ -29,8 +29,9 @@ how to work with git
 11: "git branch" to see if the branch was successfully deleted
 
 ===============================================================
-If you want the latest changes when you are in YOUR OWN BRANCH,
+If you want the latest changes when you are in YOUR OWN BRANCH
 ===============================================================
+
 1: move to master
 
 2: git pull origin master

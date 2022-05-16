@@ -12,12 +12,3 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 9: "git pull origin master" to get the latest code
 10: "git sweep" on your terminal to delete the branch from your local machine
 11: "git branch" to see if the branch was successfully deleted
-
-
-
-
-If you want the latest changes when you are in YOUR OWN BRANCH,
-1: move to master
-2: git pull origin master
-3: come back to your own branch
-4: "git merge master"

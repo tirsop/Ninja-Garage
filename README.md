@@ -11,3 +11,4 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 8: "git checkout master" to go back to master
 9: "git pull origin master" to get the latest code
 10: "git sweep" on your terminal to delete the branch from your local machine
+11: "git branch" to see if the branch was successfully deleted

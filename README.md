@@ -16,31 +16,35 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 =============================================================
 
-1: "**git checkout -b BRANCH-NAME**" to create YOUR OWN BRANCH to work with
+1: "**git checkout master**" to move to MASTER
 
-2: "**git branch**" to see the list of existing branches
+2: "**git pull origin master**" to update your local master to the latest
 
-3: work on stuff in YOUR branch (NOT MASTER!!!)
+3: "**git checkout -b BRANCH-NAME**" to create and move to YOUR OWN BRANCH to work with
 
-4: "**git add**" "**git commit**" Make sure you are NOT in MASTER branch
+4: "**git branch**" to see the list of existing branches
 
-5: "**git push origin BRANCH-NAME**"
+5: Work on stuff in YOUR branch (NOT MASTER!!!)
 
-6: "**git status**" to make sure the status is CLEAN
+6: "**git add**" "**git commit**" Make sure you are NOT in MASTER branch
 
-7: Go to github page on browser and click "Pull request"
+7: "**git push origin BRANCH-NAME**"
 
-8: If there's conflict, discuss with teamates.
+8: "**git status**" to make sure the status is CLEAN
 
-9: Lead Dev merges and deletes the branch.
+9: Go to github page on browser and click "Pull request"
 
-10: "**git checkout master**" to go back to master
+10: If there's conflict, discuss with teamates.
 
-11: "**git pull origin master**" to get the latest code
+11: Lead Dev merges and deletes the branch.
 
-12: "**git sweep**" on your terminal to delete the branch from your local machine
+12: "**git checkout master**" to go back to master
 
-13: "**git branch**" to see if the branch was successfully deleted
+13: "**git pull origin master**" to get the latest code
+
+14: "**git sweep**" on your terminal to delete the branch from your local machine
+
+15: "**git branch**" to see if the branch was successfully deleted
 
 ===============================================================
 

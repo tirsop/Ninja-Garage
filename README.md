@@ -2,33 +2,45 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 =============================================================
 
+🏆 2 GOLDEN RULES
+
+=============================================================
+
+- **Never** commit directly to master. Use feature branches
+
+- **Always** make sure **git status is clean** before pull, checkout or merge.
+
+=============================================================
+
 🌟 how to work with git
 
 =============================================================
 
-1: "git checkout -b BRANCH-NAME"
+1: "**git checkout -b BRANCH-NAME**"
 
-2: "git branch" to see the list of existing branches
+2: "**git branch**" to see the list of existing branches
 
-2: work on stuff in the branch
+3: work on stuff in the branch
 
-3: "git add" "git commit" #make sure you are NOT in MASTER branch
+4: "**git add**" "**git commit**" Make sure you are NOT in MASTER branch
 
-4: "git push origin BRANCH-NAME"
+5: "**git push origin BRANCH-NAME**"
 
-5: Go to github page on browser and click "Pull request"
+6: "**git status**" to make sure the status is CLEAN
 
-6: If there's conflict, discuss with teamates.
+7: Go to github page on browser and click "Pull request"
 
-7: Lead Dev merges and deletes the branch.
+8: If there's conflict, discuss with teamates.
 
-8: "git checkout master" to go back to master
+9: Lead Dev merges and deletes the branch.
 
-9: "git pull origin master" to get the latest code
+10: "**git checkout master**" to go back to master
 
-10: "git sweep" on your terminal to delete the branch from your local machine
+11: "**git pull origin master**" to get the latest code
 
-11: "git branch" to see if the branch was successfully deleted
+12: "**git sweep**" on your terminal to delete the branch from your local machine
+
+13: "**git branch**" to see if the branch was successfully deleted
 
 ===============================================================
 
@@ -36,10 +48,10 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 ===============================================================
 
-1: move to master
+1: **git checkout master** to move to master
 
-2: git pull origin master
+2: **git pull origin master**
 
-3: come back to your own branch
+3: **git checkout YOUR-BRANCH** to come back to your own branch
 
-4: "git merge master"
+4: "**git merge master**"

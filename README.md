@@ -1,8 +1,10 @@
 Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
 
+# 🤖 How to use github
+
 =============================================================
 
-🏆 2 GOLDEN RULES
+## 🏆 2 GOLDEN RULES
 
 =============================================================
 
@@ -12,7 +14,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 =============================================================
 
-🌟 how to work with git
+## 🌟 how to work with git
 
 =============================================================
 
@@ -48,7 +50,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 ===============================================================
 
-🎊 If you want the latest changes when you are in YOUR OWN BRANCH
+## 🎊 If you want the latest changes when you are in YOUR OWN BRANCH
 
 ===============================================================
 
@@ -59,3 +61,37 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 3: "**git checkout YOUR-BRANCH**" to come back to your own branch
 
 4: "**git merge master**"
+
+===============================================================
+
+## ⚠️ In case of conflict
+
+===============================================================
+
+
+
+git status # ⚠️ ⚠️ ⚠️ Make sure it's clean before proceeding
+
+git checkout master
+
+git pull origin master          
+#pull the latest changes
+
+git checkout unmergeable-branch 
+#switch back to your branch
+
+git merge master                
+#merge the new changes from master into your branch
+
+#Open your text editor and solve conflicts (locate them with cmd + shift + f `<<<<<`)
+
+#When solved, we need to finish the merge
+
+git add .                           
+#add the files in conflict
+
+git commit --no-edit                
+#commit using the default commit message
+
+git push origin unmergeable-branch  
+#push our branch again

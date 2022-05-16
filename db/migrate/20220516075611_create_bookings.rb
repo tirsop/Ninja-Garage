@@ -5,7 +5,7 @@ class CreateBookings < ActiveRecord::Migration[6.1]
       t.references :vehicle, null: false, foreign_key: true
       t.date :start_date
       t.date :return_date
-      t.integer :status
+      t.integer :status, default: 0
 
       t.timestamps
     end

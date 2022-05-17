@@ -28,7 +28,7 @@ Vehicle.create!(
   category: Vehicle::CATEGORIES.sample,
   location: Faker::Address.city,
   price: rand(5000..10000),
-  description: Faker::Vehicle.standard_specs
+  description: Faker::Vehicle.standard_specs.join(', ')
 )
 end
 puts "Created #{Vehicle.count} vehicles."

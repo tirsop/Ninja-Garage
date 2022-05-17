@@ -1,26 +1,32 @@
-<h1>Vehicles#show</h1>
-<p>Find me in app/views/vehicles/show.html.erb</p>
-
-
-<% @vehicle %>
+<div class="container d-flex justify-content-center">
+  <h1>Rent <%= @vehicle.brand %> : <%= @vehicle.model %></h1>
+</div>
+<div class="container d-flex justify-content-center">
+  <p><%= @vehicle.category %></p>
+</div>
+<div class="m-3">
   <div class="item card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @vehicle.photo.attached? ? cl_image_path(@vehicle.photo.key) : image_path('https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg') %>)">
   </div>
-  <div class="container">
-    <%= @vehicle.brand %>
-    <%= @vehicle.model %>
-    <%= @vehicle.price %>
-    <%= @vehicle.location %>
-    <%= @vehicle.category %>
-    <%= @vehicle.description %>
-  </div>
-
-<div class="container p-3">
-  <h1>Rent this vehicle</h1>
-  <div class="container card p-4">
-    <%= simple_form_for [@vehicle, @booking] do |f| %>
-      <%= f.input :start_date %>
-      <%= f.input :return_date %>
-      <%= f.submit 'Rent!', class: 'btn btn-primary' %>
-    <% end %>
+  <div class="content">
+    <div class="row">
+      <div class="col m-3">
+        <%= @vehicle.brand %>
+        <%= @vehicle.model %>
+        <%= @vehicle.price %>
+        <%= @vehicle.location %>
+        <%= @vehicle.category %>
+        <%= @vehicle.description %>
+      </div>
+      <div class="col-xs-12 col-sm-5 container m-3 border" id="book">
+        <h1>Rent this vehicle</h1>
+        <div class="">
+          <%= simple_form_for [@vehicle, @booking] do |f| %>
+            <%= f.input :start_date %>
+            <%= f.input :return_date %>
+            <%= f.submit 'Rent!', class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

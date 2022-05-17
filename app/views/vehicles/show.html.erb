@@ -1,2 +1,11 @@
 <h1>Vehicles#show</h1>
 <p>Find me in app/views/vehicles/show.html.erb</p>
+<% @vehicle %>
+  <div class="container">
+    <%= @vehicle.brand %>
+    <%= @vehicle.model %>
+    <%= @vehicle.price %>
+    <%= @vehicle.location %>
+    <%= @vehicle.category %>
+    <%= @vehicle.description %>
+  </div>

@@ -9,6 +9,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
+          <li class="nav-item active nav-link">
+            <%= current_user.email %> | <%= current_user.first_name %> | <%= current_user.bookings.count %> Bookings | <%= current_user.vehicles.count %> vehicles
+          </li>
           <li class="nav-item active">
             <%= link_to "Home", "#", class: "nav-link" %>
           </li>

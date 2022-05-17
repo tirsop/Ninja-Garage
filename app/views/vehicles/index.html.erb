@@ -1,13 +1,7 @@
-<h1>Vehicles#index</h1>
-<p>Find me in app/views/vehicles/index.html.erb</p>
-<% @vehicles.each do |vehicle| %>
-  <div class="item card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= vehicle.photo.attached? ? cl_image_path(vehicle.photo.key) : image_path('https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg') %>)">
-  </div>
-  <div class="container">
-    <%= vehicle.brand %>
-    <%= vehicle.model %>
-    <%= vehicle.price %>
-    <%= vehicle.brand %>
-    <%= vehicle.category %>
-  </div>
-<% end %>
+<div class="container d-flex justify-content-center">
+  <h1>🎌 All of our vehicles 🎌</h1>
+</div>
+<div class="container d-flex justify-content-center">
+  <p>Click a vehicle to see the details</p>
+</div>
+<%= render partial: "car_cards" %>

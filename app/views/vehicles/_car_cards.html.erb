@@ -1,0 +1,19 @@
+<div class="content">
+  <div class="cards">
+    <% @vehicles.each do |vehicle| %>
+      <div class="card-trip">
+        <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> %>
+        <%= cl_image_tag(vehicle.photo.key) %>
+        <%# <%= cl_image_tag(vehicle.photo.key,
+              width: 400, height: 300, crop: :fill) %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= vehicle.brand %></h2>
+            <p><%= vehicle.model %></p>
+          </div>
+          <h2 class="card-trip-pricing">¥ <%= vehicle.price %></h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

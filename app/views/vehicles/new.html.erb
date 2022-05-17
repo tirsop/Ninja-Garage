@@ -1,2 +1,17 @@
 <h1>Vehicles#new</h1>
 <p>Find me in app/views/vehicles/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-6 offset-sm-3">
+      <%= simple_form_for(@vehicle) do |f| %>
+        <%= f.input :brand %>
+        <%= f.input :model %>
+        <%= f.input :category, collection: Vehicle::CATEGORIES, include_blank: false %>
+        <%= f.input :description %>
+        <%= f.input :price %>
+        <%= f.input :location %>
+        <%= f.submit class: 'btn btn-primary mt-2' %>
+      <% end %>
+    </div>
+  </div>
+</div>

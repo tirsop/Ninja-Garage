@@ -7,6 +7,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.vehicle = @vehicle
+
+    authorize @booking
     if @booking.save
       redirect_to vehicle_path(@vehicle)
     else

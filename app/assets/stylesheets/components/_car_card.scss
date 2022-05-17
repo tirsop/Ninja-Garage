@@ -2,6 +2,13 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-size: cover;
+
+  background-position: center;
+  border-radius: 1px;
+  // display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .card-trip > img {
@@ -37,6 +44,20 @@
   top: -20px;
   width: 40px;
 }
+
+.cards {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  padding: 16px;
+}
+
+.content {
+  display: flex;
+}
+
+
 
 /* without user icon
 <div class="card-trip">

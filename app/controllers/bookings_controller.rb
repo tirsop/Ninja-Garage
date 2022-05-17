@@ -14,9 +14,18 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      redirect_to owner_bookings_path, notice: 'Booking was succesfully updated.'
+    else
+      render :edit
+    end
+  end
+
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :return_date)
+    params.require(:booking).permit(:start_date, :return_date, :status)
   end
 end

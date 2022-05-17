@@ -1,5 +1,7 @@
 <h1>Vehicles#show</h1>
 <p>Find me in app/views/vehicles/show.html.erb</p>
+
+
 <% @vehicle %>
   <div class="container">
     <%= @vehicle.brand %>
@@ -9,3 +11,14 @@
     <%= @vehicle.category %>
     <%= @vehicle.description %>
   </div>
+
+<div class="container p-3">
+  <h1>Rent this vehicle</h1>
+  <div class="container card p-4">
+    <%= simple_form_for [@vehicle, @booking] do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :return_date %>
+      <%= f.submit 'Rent!', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

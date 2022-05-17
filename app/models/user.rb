@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_many :vehicles, dependent: :destroy
   has_one_attached :photo
   # Include default devise modules. Others available are:

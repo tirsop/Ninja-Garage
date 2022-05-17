@@ -1,4 +1,26 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<h1>Luis Luis Luis Luis</h1>
-<p>This text is creted by Kenji. edited on may 16 4 pm</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>🏁 Ninja Garage 🏁</h1>
+    <p>Rent crazy vehicles</p>
+    <a class="btn btn-flat" href="#">Sign up now</a>
+  </div>
+</div>
+<div class="content">
+  <div class="cards">
+    <% @vehicles.each do |vehicle| %>
+      <div class="card-trip">
+        <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> %>
+        <%= cl_image_tag(vehicle.photo.key) %>
+        <%# <%= cl_image_tag(vehicle.photo.key,
+              width: 400, height: 300, crop: :fill) %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= vehicle.brand %></h2>
+            <p><%= vehicle.model %></p>
+          </div>
+          <h2 class="card-trip-pricing">¥ <%= vehicle.price %></h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

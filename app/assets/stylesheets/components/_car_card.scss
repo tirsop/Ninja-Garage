@@ -1,7 +1,7 @@
 .card-trip {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   background-size: cover;
 
   background-position: center;
@@ -11,7 +11,7 @@
   justify-content: space-around;
 }
 
-.card-trip > img {
+.card-trip>img {
   height: 200px;
   width: 100%;
   object-fit: cover;
@@ -51,6 +51,11 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
   padding: 16px;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .content {

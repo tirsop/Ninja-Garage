@@ -1,0 +1,84 @@
+.card-booking {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-size: cover;
+
+  background-position: center;
+  border-radius: 1px;
+  // display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.card-booking > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-booking h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-booking p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-booking .card-booking-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-booking-infos .card-booking-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.cards {
+  flex-grow: 1;
+  display: grid;
+  // grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  padding: 16px;
+}
+
+
+
+
+/* without user icon
+<div class="card-booking">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-booking-infos">
+    <div>
+      <h2>Title here</h2>
+      <p>Short description here!</p>
+    </div>
+    <h2 class="card-booking-pricing">£99.99</h2>
+  </div>
+</div>
+*/
+
+/* with user icon
+<div class="card-booking">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-booking-infos">
+    <div>
+      <h2>Title here</h2>
+      <p>Short description here!</p>
+    </div>
+    <h2 class="card-booking-pricing">£99.99</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-booking-user avatar-bordered" />
+  </div>
+</div>
+*/

@@ -5,4 +5,35 @@
     <a class="btn btn-flat" href="vehicles#index"> Browse vehicles </a>
   </div>
 </div>
+<div class="container pt-5">
+<h3>Browse by Category</h3>
+<div class="categories">
+  <div class="card-trip">
+        <img src="https://res.cloudinary.com/taabo-imports-ltd/image/upload/qphm3l003t60o7aclg6ps33wuf1f" />
+        <%# <%= cl_image_tag(vehicle.photo.key) %>
+        <div class="card-trip-infos">
+          <div>
+            <h2>Decotora</h2>
+          </div>
+        </div>
+    </div>
+  <div class="card-trip">
+        <img src="https://drifting.com/forums/filedata/fetch?id=489603" />
+        <%# <%= cl_image_tag(vehicle.photo.key) %>
+        <div class="card-trip-infos">
+          <div>
+            <h2>Bosozoku-Bike</h2>
+          </div>
+        </div>
+    </div>
+  <div class="card-trip">
+        <img src="https://c4.wallpaperflare.com/wallpaper/730/705/239/honda-fit-tunercar-yellow-cars-japanese-cars-itasha-hd-wallpaper-preview.jpg" />
+        <%# <%= cl_image_tag(vehicle.photo.key) %>
+        <div class="card-trip-infos">
+          <div>
+            <h2>Itasha</h2>
+          </div>
+        </div>
+    </div>
+</div>
 <%= render partial: "vehicles/car_cards" %>

@@ -2,7 +2,7 @@ puts "Cleaning the DB..."
 User.destroy_all
 random = (1..20).to_a.shuffle
 # path for local images. assets/images/vehicles/-->hash_keys
-images = { Bosozoku_Bike: (1..3).to_a, Decotora: (1..5).to_a, Itasha: (1..6).to_a }
+images = { Bosozoku_Bike: (1..6).to_a, Decotora: (1..4).to_a, Itasha: (1..8).to_a }
 
 puts "Creating host users..."
 10.times do
@@ -33,20 +33,6 @@ images.each do |category, file_names|
   end
 end
 puts "...created #{Vehicle.count} vehicles."
-
-# 10.times do
-#   vehicle = Vehicle.create!(
-#     user: User.all.sample,
-#     brand: Faker::Vehicle.make,
-#     model: Faker::Vehicle.model,
-#     category: Vehicle::CATEGORIES.sample,
-#     location: Faker::Address.city,
-#     price: rand(5000..10000),
-#     description: Faker::Vehicle.standard_specs.join(', ')
-#   )
-#   file = File.open("app/assets/images/vehicles/itasha/p52-1.jpeg")
-#   vehicle.photo.attach(io: file, filename: 'vehicle.jpeg', content_type: 'image/jpeg')
-# end
 
 puts "Creating guest users..."
 10.times do

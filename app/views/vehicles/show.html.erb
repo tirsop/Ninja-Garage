@@ -29,4 +29,34 @@
       </div>
     </div>
   </div>
+  <div class="container">
+    <div class="d-flex">
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", id: "navbarDropdown", 'aria-haspopup': true, 'aria-expanded': false %>
+      <div class="container">
+        <p>Owner</p>
+        <h3><%= "#{@vehicle.user.first_name} #{@vehicle.user.last_name}" %></h3>
+        <p><%= @vehicle.user.email %></p>
+      </div>
+    </div>
+    <h3><%= "#{@vehicle.user.first_name}'s Vehicles" %></h3>
+    <div class="cards">
+      <% @vehicle.user.vehicles.each do |vehicle| %>
+        <%= link_to vehicle_path(vehicle) do %>
+          <div class="card-trip">
+            <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> %>
+            <%= cl_image_tag(vehicle.photo.key) %>
+            <%# <%= cl_image_tag(vehicle.photo.key,
+              width: 400, height: 300, crop: :fill) %>
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= vehicle.brand %></h2>
+                <p><%= vehicle.model %></p>
+              </div>
+              <h2 class="card-trip-pricing">¥ <%= vehicle.price %></h2>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

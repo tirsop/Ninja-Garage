@@ -1,0 +1,29 @@
+<div class="">
+  <% @bookings.each do |booking| %>
+    <div class="card-booking m-4">
+      <% start_date = booking.start_date %>
+      <% return_date = booking.return_date %>
+      <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> %>
+      <%= cl_image_tag(booking.vehicle.photo.key) %>
+      <%# <%= cl_image_tag(booking.photo.key,
+              width: 400, height: 300, crop: :fill) %>
+      <div class="card-booking-infos">
+        <div>
+          <h2><%= booking.vehicle.model %></h2>
+          <p>Starts on <%= start_date %></p>
+          <p>Return on <%= return_date %></p>
+          <p>Status : <%= booking.status %></p>
+        </div>
+        <h2 class="card-booking-pricing">¥ <%= booking.vehicle.price * (return_date - start_date).to_i %></h2>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%# class Booking < ApplicationRecord
+  belongs_to :user
+  belongs_to :vehicle
+  validates :start_date, presence: true
+  validates :return_date, presence: true
+  validates :status, presence: true
+  enum status: { pending: 0, accepted: 1, rejected: 2 }
+end %>

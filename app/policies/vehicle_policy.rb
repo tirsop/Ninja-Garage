@@ -4,13 +4,11 @@ class VehiclePolicy < ApplicationPolicy
     def resolve
       scope.all
     end
-
-
   end
 
+  # def new? is inherited from ApplicationPolicy, so no need to defeine here
+
   def create?
-    # true
-    # user_signed_in? does not work here...
     user
   end
 

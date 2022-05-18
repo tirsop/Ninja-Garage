@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   def index
+    @bookings = policy_scope(Booking)
   end
 
   def create
@@ -18,6 +19,7 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
+    authorize @booking
     if @booking.update(booking_params)
       redirect_to owner_bookings_path, notice: 'Booking was succesfully updated.'
     else

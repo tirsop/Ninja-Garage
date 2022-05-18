@@ -1,6 +1,6 @@
 <h1>Bookings#index</h1>
 <p>Find me in app/views/bookings/index.html.erb</p>
-<% current_user.bookings.each do |booking| %>
+<% @bookings.each do |booking| %>
   <p>Vehicle: <%= booking.vehicle.brand %> <%= booking.vehicle.model %> (<%= booking.vehicle.category %>)</p>
   <p>Start date: <%= booking.start_date %></p>
   <p>Return date: <%= booking.return_date %></p>

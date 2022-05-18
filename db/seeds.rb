@@ -5,6 +5,24 @@ random = (1..20).to_a.shuffle
 images = { Bosozoku_Bike: (1..6).to_a, Decotora: (1..4).to_a, Itasha: (1..8).to_a }
 
 puts "Creating host users..."
+User.create!(
+  first_name: "Yuki",
+  last_name: "Harwood",
+  email: "yuki@email.com",
+  password: 123123,
+)
+vehicle = Vehicle.create!(
+  user: User.find_by(first_name: "Yuki"),
+  brand: Faker::Vehicle.make,
+  model: Faker::Vehicle.model,
+  category: "Itasha",
+  location: Faker::Address.city,
+  price: rand(5000..30000),
+  description: Faker::Vehicle.standard_specs.join(', ')
+)
+file = File.open("app/assets/images/vehicles/Itasha/7.jpeg")
+vehicle.photo.attach(io: file, filename: 'vehicle.jpeg', content_type: 'image/jpeg')
+
 10.times do
   User.create!(
     first_name: Faker::Name.first_name,

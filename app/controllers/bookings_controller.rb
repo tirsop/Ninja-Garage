@@ -1,5 +1,8 @@
 class BookingsController < ApplicationController
   def index
+    @bookings = Booking.all
+    # How to scope bookings to show only the current user's bookings??
+    # pundit or devise
   end
 
   def create

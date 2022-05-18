@@ -1,29 +1,26 @@
 <h1>Owner::Bookings#index</h1>
 <p>Find me in app/views/owner/bookings/index.html.erb</p>
+
 <div class="container">
-  <% current_user.vehicles.each do |vehicle| %>
-    <% vehicle.bookings.each do |booking| %>
-      <div class="card">
-        <%= link_to vehicle_path(vehicle) do %>
-          <div class="item card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= booking.vehicle.photo.attached? ? cl_image_path(booking.vehicle.photo.key) : image_path('https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg') %>)">
-          </div>
-        <% end %>
-        <p><%= booking.status %></p>
-        <p><%= booking.vehicle.brand %></p>
-        <p><%= booking.vehicle.model %></p>
-        <p><%= booking.vehicle.category %></p>
-        <p><%= booking.vehicle.price %></p>
-        <p>Guest: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
-        <p>From: <%= booking.start_date %></p>
-        <p>Until: <%= booking.return_date %></p>
-        <p>Location: <%= booking.vehicle.location %></p>
-        <div class="container">
-          <%= simple_form_for booking do |f| %>
-            <%= f.input :status, collection: Booking.statuses.keys, include_blank: false %>
-            <%= f.submit class: 'btn btn-primary mt-2' %>
-          <% end %>
-        </div>
+  <% @bookings.each do |booking| %>
+    <div class="card">
+      <div class="item card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= booking.vehicle.photo.attached? ? cl_image_path(booking.vehicle.photo.key) : image_path('https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg') %>)">
       </div>
-    <% end %>
+      <p><%= booking.status %></p>
+      <p><%= booking.vehicle.brand %></p>
+      <p><%= booking.vehicle.model %></p>
+      <p><%= booking.vehicle.category %></p>
+      <p><%= booking.vehicle.price %></p>
+      <p>Guest: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+      <p>From: <%= booking.start_date %></p>
+      <p>Until: <%= booking.return_date %></p>
+      <p>Location: <%= booking.vehicle.location %></p>
+      <div class="container">
+        <%= simple_form_for booking do |f| %>
+          <%= f.input :status, collection: Booking.statuses.keys, include_blank: false %>
+          <%= f.submit class: 'btn btn-primary mt-2' %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 </div>

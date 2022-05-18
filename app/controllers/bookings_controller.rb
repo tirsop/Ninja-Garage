@@ -1,8 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
-    # How to scope bookings to show only the current user's bookings??
-    # pundit or devise
+    @bookings = policy_scope(Booking)
   end
 
   def create
@@ -10,6 +8,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.vehicle = @vehicle
+
+    authorize @booking
     if @booking.save
       redirect_to bookings_path
     else
@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
+    authorize @booking
     if @booking.update(booking_params)
       redirect_to owner_bookings_path, notice: 'Booking was succesfully updated.'
     else

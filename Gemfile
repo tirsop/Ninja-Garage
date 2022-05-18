@@ -65,5 +65,5 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 
 # Custom added gems
 gem 'devise'
-
 gem 'cloudinary', '~> 1.16.0'
+gem 'pundit'

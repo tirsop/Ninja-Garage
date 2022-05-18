@@ -1,39 +1,45 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner">
   <div class="container">
-    <h1>🏁 Ninja Garage 🏁</h1>
+    <h1>Ninja Garage</h1>
     <p>Rent crazy vehicles</p>
     <a class="btn btn-flat" href="vehicles#index"> Browse vehicles </a>
   </div>
+  <div class="arrow">
+    <a href="#browse"><i class="fas fa-chevron-down"></i></a>
+  </div>
 </div>
-<div class="container pt-5">
-<h3>Browse by Category</h3>
-<div class="categories">
-  <div class="card-trip">
-        <img src="https://res.cloudinary.com/taabo-imports-ltd/image/upload/qphm3l003t60o7aclg6ps33wuf1f" />
-        <%# <%= cl_image_tag(vehicle.photo.key) %>
-        <div class="card-trip-infos">
-          <div>
-            <h2>Decotora</h2>
-          </div>
+<div id="browse" class="container pt-5">
+  <div class="container p-3 m-5">
+    <h1 class='slogan text-center'>Become a yankee for a day!</h1>
+  </div>
+  <h3 class='mt-6 p-3'>Browse by Category</h3>
+  <div class="categories">
+    <div class="card-trip">
+      <img src="https://res.cloudinary.com/taabo-imports-ltd/image/upload/qphm3l003t60o7aclg6ps33wuf1f" />
+      <%# <%= cl_image_tag(vehicle.photo.key) %>
+      <div class="card-trip-infos">
+        <div class='category-name'>
+          <h2>Decotora</h2>
         </div>
+      </div>
     </div>
-  <div class="card-trip">
-        <img src="https://drifting.com/forums/filedata/fetch?id=489603" />
-        <%# <%= cl_image_tag(vehicle.photo.key) %>
-        <div class="card-trip-infos">
-          <div>
-            <h2>Bosozoku-Bike</h2>
-          </div>
+    <div class="card-trip">
+      <img src="https://drifting.com/forums/filedata/fetch?id=489603" />
+      <%# <%= cl_image_tag(vehicle.photo.key) %>
+      <div class="card-trip-infos">
+        <div class='category-name'>
+          <h2>Bosozoku-Bike</h2>
         </div>
+      </div>
     </div>
-  <div class="card-trip">
-        <img src="https://c4.wallpaperflare.com/wallpaper/730/705/239/honda-fit-tunercar-yellow-cars-japanese-cars-itasha-hd-wallpaper-preview.jpg" />
-        <%# <%= cl_image_tag(vehicle.photo.key) %>
-        <div class="card-trip-infos">
-          <div>
-            <h2>Itasha</h2>
-          </div>
+    <div class="card-trip">
+      <img src="https://c4.wallpaperflare.com/wallpaper/730/705/239/honda-fit-tunercar-yellow-cars-japanese-cars-itasha-hd-wallpaper-preview.jpg" />
+      <%# <%= cl_image_tag(vehicle.photo.key) %>
+      <div class="card-trip-infos">
+        <div class='category-name'>
+          <h2>Itasha</h2>
         </div>
+      </div>
     </div>
-</div>
-<%= render partial: "vehicles/car_cards" %>
+  </div>
+  <%= render partial: "vehicles/car_cards" %>

@@ -10,12 +10,12 @@
   <div class="content">
     <div class="row">
       <div class="col m-3">
-        <%= @vehicle.brand %>
-        <%= @vehicle.model %>
-        <%= @vehicle.price %>
-        <%= @vehicle.location %>
-        <%= @vehicle.category %>
-        <%= @vehicle.description %>
+        <p>Brand    : <%= @vehicle.brand %></p>
+        <p>Model    : <%= @vehicle.model %></p>
+        <p>Price    : ¥<%= @vehicle.price %></p>
+        <p>Location : <%= @vehicle.location %></p>
+        <p>Category : <%= @vehicle.category %></p>
+        <p><%= @vehicle.description %></p>
       </div>
       <div class="col-xs-12 col-sm-5 container m-3 border" id="book">
         <h1>Rent this vehicle</h1>

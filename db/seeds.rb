@@ -10,14 +10,14 @@ User.create!(
   first_name: "Yuki",
   last_name: "Harwood",
   email: "yuki@email.com",
-  password: 123_123,
+  password: 123_123
 )
 vehicle = Vehicle.create!(
   user: User.find_by(first_name: "Yuki"),
   brand: Faker::Vehicle.make,
   model: Faker::Vehicle.model,
   category: "Itasha",
-  location: 'tokyo',
+  location: 'Meguro',
   price: rand(5000..30_000),
   description: Faker::Vehicle.standard_specs.join(', ')
 )
@@ -43,7 +43,7 @@ images.each do |category, file_names|
       brand: Faker::Vehicle.make,
       model: Faker::Vehicle.model,
       category: category,
-      location: %w[Tokyo Kyoto Osaka Saitama Kanagawa Chiba Sapporo Okinawa Paris Gunma].sample,
+      location: %w[Tokyo Shibuya Meguro Shinagawa Kyoto Osaka Kanagawa Sapporo Okinawa Paris].sample,
       price: rand(5000..30_000),
       description: Faker::Vehicle.standard_specs.join(', ')
     )

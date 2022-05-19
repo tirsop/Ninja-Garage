@@ -21,8 +21,10 @@ export default class extends Controller {
   }
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup) // add this
         .addTo(this.map)
     });
   }
@@ -42,4 +44,14 @@ export default class extends Controller {
 
 //   // make a marker for each feature and add to the map
 //   new mapboxgl.Marker(el).setLngLat(marker.geometry.coordinates).addTo(map);
+// }
+
+// #addMarkersToMap() {
+//   this.markersValue.forEach((marker) => {
+//     const popup = new mapboxgl.Popup().setHTML(marker.info_window) // add this
+//     new mapboxgl.Marker()
+//       .setLngLat([ marker.lng, marker.lat ])
+//       .setPopup(popup) // add this
+//       .addTo(this.map)
+//   });
 // }

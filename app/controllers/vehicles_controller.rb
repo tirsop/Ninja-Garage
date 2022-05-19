@@ -3,7 +3,12 @@ class VehiclesController < ApplicationController
   # before_action :set_vehicle, only: [:show]
 
   def index
-    @vehicles = policy_scope(Vehicle)
+    @vehicles =
+      if params[:category].present?
+        policy_scope(Vehicle).search_by_category_and_location(params[:category])
+      else
+        policy_scope(Vehicle)
+      end
   end
 
   def show

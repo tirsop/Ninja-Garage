@@ -1,4 +1,4 @@
-.card-booking {
+.card-owner-booking {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -11,42 +11,30 @@
   justify-content: space-around;
 }
 
-.card-booking-picture {
-  background-size: cover;
-  background-position: center;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: black;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
-.card-booking > img {
-  height: 200px;
+.card-owner-booking > img {
+  height: 600px;
   width: 100%;
   object-fit: cover;
 }
 
-.card-booking h2 {
-  font-size: 16px;
+.card-owner-booking h2 {
+  font-size: 32px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-booking p {
+.card-owner-booking p {
   font-size: 24px;
+  opacity: .7;
   margin: 0;
 }
 
+.bookings a {
+  text-decoration: none;
+  color: black;
+}
 
-
-
-.card-booking .card-booking-infos {
+.card-owner-booking .card-booking-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;

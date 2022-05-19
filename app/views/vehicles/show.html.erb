@@ -11,27 +11,26 @@
     <div class="row position-relative">
       <div class="col m-3">
         <div>
-          <p class="vehicle-price">¥<%= @vehicle.price %> / day</p>
-          <p>Brand    : <%= @vehicle.brand %></p>
-          <p>Model    : <%= @vehicle.model %></p>
-          <p>Location : <%= @vehicle.location %></p>
-          <p>Category : <%= @vehicle.category %></p>
-          <p>Other features:</p>
+          <p><strong>Brand</strong>    : <%= @vehicle.brand %></p>
+          <p><strong>Model</strong>    : <%= @vehicle.model %></p>
+          <p><strong>Location</strong> : <%= @vehicle.location %></p>
+          <p><strong>Category</strong> : <%= @vehicle.category %></p>
+          <p><strong>Other features:</strong></p>
           <p><%= @vehicle.description %></p>
         </div>
-        <div class="d-flex my-5">
-          <%= image_tag "avatar.jpg", class: "avatar vehicle-show-owner", id: "navbarDropdown", 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="">
-            <p>Owner</p>
-            <h3><%= "#{@vehicle.user.first_name} #{@vehicle.user.last_name}" %></h3>
-            <p><%= @vehicle.user.email %></p>
+        <div class="notification my-5">
+          <%= image_tag "avatar.jpg", class: "avatar-large" %>
+          <div class="notification-content">
+            <p><small>Owner</small></p>
+            <p><%= "#{@vehicle.user.first_name} #{@vehicle.user.last_name}" %></p>
           </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-5" >
         <div class="card m-3 p-3" id="book">
-          <h1>Rent this vehicle</h1>
+          <h2>Rent this vehicle</h2>
           <div class="vehicle-book-form">
+            <p class="vehicle-price">¥<%= @vehicle.price %> / day</p>
             <%= simple_form_for [@vehicle, @booking] do |f| %>
               <%= f.input :start_date, html5: true %>
               <%= f.input :return_date, html5: true %>
@@ -48,10 +47,7 @@
       <% @vehicle.user.vehicles.each do |vehicle| %>
         <%= link_to vehicle_path(vehicle) do %>
           <div class="card-trip">
-            <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> %>
             <%= cl_image_tag(vehicle.photo.key) %>
-            <%# <%= cl_image_tag(vehicle.photo.key,
-              width: 400, height: 300, crop: :fill) %>
             <div class="card-trip-infos">
               <div>
                 <h2><%= vehicle.brand %></h2>

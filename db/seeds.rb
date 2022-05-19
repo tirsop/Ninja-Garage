@@ -16,7 +16,7 @@ vehicle = Vehicle.create!(
   brand: Faker::Vehicle.make,
   model: Faker::Vehicle.model,
   category: "Itasha",
-  location: Faker::Address.city,
+  location: 'tokyo',
   price: rand(5000..30000),
   description: Faker::Vehicle.standard_specs.join(', ')
 )
@@ -42,8 +42,8 @@ images.each do |category, file_names|
       brand: Faker::Vehicle.make,
       model: Faker::Vehicle.model,
       category: category,
-      location: Faker::Address.city,
-      price: rand(5000..30000),
+      location: ['Tokyo', 'Kyoto', 'Osaka', 'Saitama', 'Kanagawa', 'Chiba', 'Sapporo', 'Okinama', 'Paris'].sample,
+      price: rand(5000..30_000),
       description: Faker::Vehicle.standard_specs.join(', ')
     )
     file = File.open("app/assets/images/vehicles/#{category}/#{file_name}.jpeg")

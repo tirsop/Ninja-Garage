@@ -10,36 +10,25 @@
 </div>
 <div id="browse" class="container pt-5">
   <div class="container p-3 m-5">
-    <h1 class='slogan text-center'>Become a yankee for a day!</h1>
+    <h1 class='slogan text-center'>Be a yankee for a day</h1>
   </div>
   <h3 class='mt-6 p-3'>Browse by Category</h3>
   <div class="categories">
-    <div class="card-trip">
-      <img src="https://res.cloudinary.com/taabo-imports-ltd/image/upload/qphm3l003t60o7aclg6ps33wuf1f" />
-      <%# <%= cl_image_tag(vehicle.photo.key) %>
-      <div class="card-trip-infos">
-        <div class='category-name'>
-          <h2>Decotora</h2>
-        </div>
+    <%= link_to vehicles_path(category: "Decotora") do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://mulattodiaries.files.wordpress.com/2010/02/decotora.jpg)">
+        <h2>Decotoras</h2>
       </div>
-    </div>
-    <div class="card-trip">
-      <img src="https://drifting.com/forums/filedata/fetch?id=489603" />
-      <%# <%= cl_image_tag(vehicle.photo.key) %>
-      <div class="card-trip-infos">
-        <div class='category-name'>
-          <h2>Bosozoku-Bike</h2>
-        </div>
+    <% end %>
+    <%= link_to vehicles_path(category: "Bosozoku_bike") do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://4.bp.blogspot.com/-VcQ0QHojFFk/UZZPCBbE1LI/AAAAAAAANrA/UGp06WUYaAk/s1600/bosozoku+bike.JPG)">
+        <h2>Bosozoku Bikes</h2>
       </div>
-    </div>
-    <div class="card-trip">
-      <img src="https://c4.wallpaperflare.com/wallpaper/730/705/239/honda-fit-tunercar-yellow-cars-japanese-cars-itasha-hd-wallpaper-preview.jpg" />
-      <%# <%= cl_image_tag(vehicle.photo.key) %>
-      <div class="card-trip-infos">
-        <div class='category-name'>
-          <h2>Itasha</h2>
-        </div>
+    <% end %>
+    <%= link_to vehicles_path(category: "Itasha") do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.ebayimg.com/images/g/qmkAAOSwInxXNREG/s-l500.jpg)">
+        <h2>Itashas</h2>
       </div>
-    </div>
+    <% end %>
   </div>
-  <%= render partial: "vehicles/car_cards" %>
+  <h1>Suggestions:</h1>
+  <%= render "vehicles/car_cards" %>

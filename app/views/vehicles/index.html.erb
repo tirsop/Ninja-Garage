@@ -1,6 +1,7 @@
 <div class="container d-flex justify-content-center">
   <h1 class="slogan p-5">🎌 All of our vehicles 🎌</h1>
 </div>
+<<<<<<< HEAD
 <div style="width: 100%; height: 600px;"
   data-controller="mapbox"
   data-mapbox-markers-value="<%= @markers.to_json %>"
@@ -13,3 +14,25 @@
     data-mapbox-markers-value="<%= @markers.to_json %>" src="https://api.mapbox.com/styles/v1/kenji123/cl3cewfvf001e14rvidnwm1re.html?title=false&access_token=pk.eyJ1Ijoia2VuamkxMjMiLCJhIjoiY2wyazNvbml1MDc1dTNqcWljaHQxY2RsciJ9.EPuKAJSjrAR5L2c_c8k12A&zoomwheel=false#8/35.6828387/139.7594549" title="Basic" ></iframe>
 -->
 <%= render partial: "car_cards" %>
+=======
+<div class="container">
+  <div class="row justify-content-center pb-5">
+    <div class="col-12 col-sm-8 col-lg-6">
+      <%= form_tag vehicles_path, method: :get, class:'d-flex' do %>
+        <%= select_tag :category,
+            options_for_select(Vehicle::CATEGORIES, params[:category]),
+            class: "form-control",
+            prompt: "Vehicle Type"
+        %>
+        <%= text_field_tag :location,
+            params[:location],
+            class: "form-control",
+            placeholder: "Location"
+        %>
+        <%= submit_tag "Search", class: "btn btn-danger" %>
+      <% end %>
+    </div>
+  </div>
+  <%= render "car_cards" %>
+</div>
+>>>>>>> master

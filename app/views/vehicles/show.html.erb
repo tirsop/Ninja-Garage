@@ -7,38 +7,42 @@
   <div class="container d-flex justify-content-center">
     <p><%= @vehicle.category %></p>
   </div>
-  <div class="content card container p-3">
-    <div class="row">
+  <div class="content container p-3">
+    <div class="row position-relative">
       <div class="col m-3">
-        <p class="vehicle-price">¥<%= @vehicle.price %> / day</p>
-        <p>Brand    : <%= @vehicle.brand %></p>
-        <p>Model    : <%= @vehicle.model %></p>
-        <p>Location : <%= @vehicle.location %></p>
-        <p>Category : <%= @vehicle.category %></p>
-        <p>Other features:</p>
-        <p><%= @vehicle.description %></p>
+        <div>
+          <p class="vehicle-price">¥<%= @vehicle.price %> / day</p>
+          <p>Brand    : <%= @vehicle.brand %></p>
+          <p>Model    : <%= @vehicle.model %></p>
+          <p>Location : <%= @vehicle.location %></p>
+          <p>Category : <%= @vehicle.category %></p>
+          <p>Other features:</p>
+          <p><%= @vehicle.description %></p>
+        </div>
+        <div class="d-flex my-5">
+          <%= image_tag "avatar.jpg", class: "avatar vehicle-show-owner", id: "navbarDropdown", 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="">
+            <p>Owner</p>
+            <h3><%= "#{@vehicle.user.first_name} #{@vehicle.user.last_name}" %></h3>
+            <p><%= @vehicle.user.email %></p>
+          </div>
+        </div>
       </div>
-      <div class="col-xs-12 col-sm-5 container m-3 p-3" id="book">
-        <h1>Rent this vehicle</h1>
-        <div class="vehicle-book-form">
-          <%= simple_form_for [@vehicle, @booking] do |f| %>
-            <%= f.input :start_date %>
-            <%= f.input :return_date %>
-            <%= f.submit 'Book', class: 'btn btn-primary' %>
-          <% end %>
+      <div class="col-xs-12 col-sm-5" >
+        <div class="card m-3 p-3" id="book">
+          <h1>Rent this vehicle</h1>
+          <div class="vehicle-book-form">
+            <%= simple_form_for [@vehicle, @booking] do |f| %>
+              <%= f.input :start_date, html5: true %>
+              <%= f.input :return_date, html5: true %>
+              <%= f.submit 'Book', class: 'btn btn-primary' %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="container p-3 mt-4">
-    <div class="d-flex mb-3">
-      <%= image_tag "avatar.jpg", class: "avatar vehicle-show-owner", id: "navbarDropdown", 'aria-haspopup': true, 'aria-expanded': false %>
-      <div class="container">
-        <p>Owner</p>
-        <h3><%= "#{@vehicle.user.first_name} #{@vehicle.user.last_name}" %></h3>
-        <p><%= @vehicle.user.email %></p>
-      </div>
-    </div>
     <h3><%= "#{@vehicle.user.first_name}'s Vehicles" %></h3>
     <div class="cards">
       <% @vehicle.user.vehicles.each do |vehicle| %>
@@ -59,5 +63,31 @@
         <% end %>
       <% end %>
     </div>
+  </div>
+  <div class="container p-3 m-3">
+    <h3>Reviews</h3>
+    <% @reviews.each do |review| %>
+      <div class="d-flex stars-show pb-2">
+        <% review.rating.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        <% (5 - review.rating).times do %>
+          <i class="far fa-star"></i>
+        <% end %>
+      </div>
+      <p><%= review.content %></p>
+    <% end %>
+  </div>
+  <div class="card p-5 m-3">
+    <h3>How was your experience?</h3>
+    <%=  simple_form_for [@vehicle, @review] do |f| %>
+      <div class="star-rating mb-5">
+        <% 5.times do |i| %>
+          <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+        <% end %>
+      </div>
+      <%= f.input :content, label: false %>
+      <%= f.submit 'Post', class: 'btn btn-primary' %>
+    <% end %>
   </div>
 </div>

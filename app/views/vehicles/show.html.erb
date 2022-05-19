@@ -60,4 +60,30 @@
       <% end %>
     </div>
   </div>
+  <div class="container p-3 m-3">
+    <h3>Reviews</h3>
+    <% @reviews.each do |review| %>
+      <div class="d-flex stars-show pb-2">
+        <% review.rating.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        <% (5 - review.rating).times do %>
+          <i class="far fa-star"></i>
+        <% end %>
+      </div>
+      <p><%= review.content %></p>
+    <% end %>
+  </div>
+  <div class="card p-5 m-3">
+    <h3>How was your experience?</h3>
+    <%=  simple_form_for [@vehicle, @review] do |f| %>
+      <div class="star-rating mb-5">
+        <% 5.times do |i| %>
+          <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+        <% end %>
+      </div>
+      <%= f.input :content, label: false %>
+      <%= f.submit 'Post', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
 </div>

@@ -43,7 +43,7 @@ images.each do |category, file_names|
       brand: Faker::Vehicle.make,
       model: Faker::Vehicle.model,
       category: category,
-      location: %w[Tokyo Shibuya Meguro Shinagawa Kyoto Osaka Kanagawa Sapporo Okinawa Paris].sample,
+      location: %w[Tokyo Shibuya Meguro Shinagawa Kyoto Kanagawa Okinawa Paris].sample,
       price: rand(5000..30_000),
       description: Faker::Vehicle.standard_specs.join(', ')
     )

@@ -1,7 +1,7 @@
 <div class="container info-window">
-  <h2><%= vehicle.brand %></h2>
+  <p><strong><%= vehicle.brand %></strong></p>
   <p><%= vehicle.location %></p>
-  <p>¥ <%= number_to_currency(vehicle.price, {unit: '¥', precision: 0}) # => ¥1,234,567 %></p>
+  <p><%= number_to_currency(vehicle.price, {unit: '¥', precision: 0}) %></p>
   <%= cl_image_tag(vehicle.photo.key) %>
   <%# link to not wrking %>
   <%= link_to "See more about #{vehicle.model}", vehicle_path(vehicle) %>

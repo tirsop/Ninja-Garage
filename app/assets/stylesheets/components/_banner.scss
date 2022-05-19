@@ -3,24 +3,28 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https://riders.drivemag.com/wp-content/uploads/default/0002/05/Mercenary-Garage-Design-Dublin-Ireland-Custom-Motorcycle-Workshop-Sukeban-Boss-Girl-Bosozoku-Rockers-Japan-8433.jpeg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://riders.drivemag.com/wp-content/uploads/default/0002/05/Mercenary-Garage-Design-Dublin-Ireland-Custom-Motorcycle-Workshop-Sukeban-Boss-Girl-Bosozoku-Rockers-Japan-8433.jpeg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   padding: 100px 0;
   height: 93vh;
+
   .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     a {
       margin-top: 16px;
     }
   }
+
   .arrow {
     font-size: 32px;
+
     a {
       color: rgba(255, 255, 255, 0.734);
     }
@@ -30,7 +34,7 @@
 .banner h1 {
   margin: 0;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   font-size: 64px;
   font-weight: bold;
   font-family: 'Smooch', cursive;
@@ -40,7 +44,7 @@
   font-size: 32px;
   color: white;
   opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 /*

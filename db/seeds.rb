@@ -1,4 +1,5 @@
 puts "Cleaning the DB..."
+Review.destroy_all
 User.destroy_all
 random = (1..20).to_a.shuffle
 # path for local images. assets/images/vehicles/-->hash_keys
@@ -73,3 +74,14 @@ puts "Creating bookings..."
   )
 end
 puts "...created #{Booking.count} bookings."
+
+puts "Creating reviews..."
+30.times do
+  Review.create!(
+    rating: rand(1..5),
+    content: Faker::Quote.matz,
+    user: User.all.sample,
+    vehicle: Vehicle.all.sample
+  )
+end
+puts "...created #{Review.count} reviews."

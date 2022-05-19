@@ -1,7 +1,7 @@
 .card-owner-booking {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   background-size: cover;
 
   background-position: center;
@@ -11,7 +11,7 @@
   justify-content: space-around;
 }
 
-.card-owner-booking > img {
+.card-owner-booking>img {
   height: 600px;
   width: 100%;
   object-fit: cover;
@@ -57,8 +57,13 @@
   padding: 16px;
 }
 
+.card-booking-picture {
+  width: 300px;
+}
 
-
+.green {
+  box-shadow: 0 0 15px rgba(0, 242, 0, 0.65);
+}
 
 /* without user icon
 <div class="card-booking">

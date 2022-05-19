@@ -1,19 +1,27 @@
 <div class="bookings">
   <% @bookings.each do |booking| %>
-    <div class="card-owner-booking m-5">
+    <% booking.status == "accepted"? card_color="green": card_color=""%>
+    <div class="card-owner-booking m-5 <%=card_color%>">
       <% start_date = booking.start_date %>
       <% return_date = booking.return_date %>
       <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> %>
-      <% if booking.status == 'rejected' %>
-        <div class="card-booking-picture" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url(<%= cl_image_path(booking.vehicle.photo.key)%>)">Status : <%= booking.status.capitalize %></div>
-      <% elsif booking.status == 'pending' %>
-        <div class="card-booking-picture" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(255,255,255,0.8)), url(<%= cl_image_path(booking.vehicle.photo.key)%>)">Status : <%= booking.status.capitalize %></div>
-      <% else %>
-        <div class="card-booking-picture" style="background-image: url(<%= cl_image_path(booking.vehicle.photo.key)%>)"></div>
-      <% end %>
       <%# <%= cl_image_tag(booking.photo.key,
               width: 400, height: 300, crop: :fill) %>
-      <div class="owner-booking-card d-flex justify-content-between">
+      <div class="owner-booking-card d-flex justify-content-between align-items-center">
+        <% if booking.status == 'rejected' %>
+          <div>
+            <div class="card-booking-picture" style="color:white; background-image: url(<%= cl_image_path(booking.vehicle.photo.key)%>)"></div>
+          </div>
+        <% elsif booking.status == 'pending' %>
+          <div>
+            <div class="card-booking-picture" style="color:white; background-image: url(<%= cl_image_path(booking.vehicle.photo.key)%>)"></div>
+          </div>
+        <% else %>
+          <div>
+            <div class="card-booking-picture" style="color:white; background-image: url(<%= cl_image_path(booking.vehicle.photo.key)%>)"></div>
+          </div>
+        <% end %>
+        <h2 style="text-align:center"><%= booking.vehicle.brand %> : <%= booking.vehicle.model %></h2>
         <div class="m-4">
           <div class="container">
             <p>From: <%= booking.start_date %></p>
@@ -22,17 +30,26 @@
             <% total = booking.vehicle.price * (return_date - start_date).to_i %>
             <p>Total Price: <%= number_to_currency(total, {unit: '¥', precision: 0}) %></p>
           </div>
-          <div class="container mb-4"><%= link_to "See more about your car : #{booking.vehicle.model}" ,vehicle_path(booking.vehicle), class: "btn btn-primary btn-inverse" %></div>
-        </div>
-        <div class="m-4">
-          <h2><%= booking.vehicle.brand %> : <%= booking.vehicle.model %></h2>
+          <div class="container mb-4"><%= link_to "See more about your car : #{booking.vehicle.model}" ,vehicle_path(booking.vehicle), class: "btn btn-primary mt-5", style: "color:white" %></div>
         </div>
         <div class="m-4">
           <p>Guest: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
-          <%= simple_form_for booking do |f| %>
-            <%= f.input :status, collection: Booking.statuses.keys, include_blank: false %>
-            <%= f.submit class: 'btn btn-primary mt-2' %>
-          <% end %>
+          <div class="d-flex justify-content-between">
+            <% if booking.status == "pending" %>
+              <%= simple_form_for booking do |f| %>
+                <%= f.input :status, as: :hidden, input_html:{value:"accepted"} %>
+                <%= f.submit "accept", class: 'btn btn-primary mt-2' %>
+              <% end %>
+              <%= simple_form_for booking do |f| %>
+                <%= f.input :status, as: :hidden, input_html:{value:"rejected"} %>
+                <%= f.submit "decline", class: 'btn btn-danger mt-2' %>
+              <% end %>
+            <% elsif booking.status == "accepted" %>
+              <h2 style="color:green">Accepted</h2>
+            <% else %>
+              <h2 style="color:red">Rejected</h2>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

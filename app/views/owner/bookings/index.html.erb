@@ -1,5 +1,5 @@
 <div class="container d-flex justify-content-center mt-4">
-  <h1>You have <%= @bookings.count %> bookings from customers🗓</h1>
+  <h1>You have <%= @bookings.count %> <%= "booking".pluralize(@bookings.count) %> from customers🗓</h1>
 </div>
 <div class="container d-flex justify-content-center">
   <p>Accept or Reject pending bookings for your vehicles</p>

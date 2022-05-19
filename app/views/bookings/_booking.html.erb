@@ -19,7 +19,8 @@
           <h2><%= booking.vehicle.model %></h2>
           <p>Starts on <%= start_date %></p>
           <p>Return on <%= return_date %></p>
-          <h2 class="card-booking-pricing">¥ <%= booking.vehicle.price * (return_date - start_date).to_i %></h2>
+          <% total = booking.vehicle.price * (return_date - start_date).to_i %>
+          <h2 class="card-booking-pricing"><%= number_to_currency(total, {unit: '¥', precision: 0}) %></h2>
         </div>
         <div>
           <p>Status : <%= booking.status %></p>

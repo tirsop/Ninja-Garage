@@ -1,0 +1,9 @@
+<div class="container info-window">
+  <p><strong><%= vehicle.brand %></strong></p>
+  <p><%= vehicle.location %></p>
+  <p><%= number_to_currency(vehicle.price, {unit: '¥', precision: 0}) %></p>
+  <%= cl_image_tag(vehicle.photo.key) %>
+  <%# link to not wrking %>
+  <%= link_to "See more about #{vehicle.model}", vehicle_path(vehicle) %>
+</div>
+<%# Go to assets/componets/_map to change style %>

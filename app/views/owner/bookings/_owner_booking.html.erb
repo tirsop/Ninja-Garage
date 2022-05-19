@@ -19,7 +19,8 @@
             <p>From: <%= booking.start_date %></p>
             <p>Until: <%= booking.return_date %></p>
             <p>Location: <%= booking.vehicle.location %></p>
-            <p>Total Price: ¥ <%= booking.vehicle.price * (return_date - start_date).to_i %></p>
+            <% total = booking.vehicle.price * (return_date - start_date).to_i %>
+            <p>Total Price: <%= number_to_currency(total, {unit: '¥', precision: 0}) %></p>
           </div>
           <div class="container mb-4"><%= link_to "See more about your car : #{booking.vehicle.model}" ,vehicle_path(booking.vehicle), class: "btn btn-primary btn-inverse" %></div>
         </div>

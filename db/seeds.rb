@@ -10,15 +10,15 @@ User.create!(
   first_name: "Yuki",
   last_name: "Harwood",
   email: "yuki@email.com",
-  password: 123123,
+  password: 123_123
 )
 vehicle = Vehicle.create!(
   user: User.find_by(first_name: "Yuki"),
   brand: Faker::Vehicle.make,
   model: Faker::Vehicle.model,
   category: "Itasha",
-  location: Faker::Address.city,
-  price: rand(5000..30000),
+  location: 'Meguro',
+  price: rand(5000..30_000),
   description: Faker::Vehicle.standard_specs.join(', ')
 )
 file = File.open("app/assets/images/vehicles/Itasha/7.jpeg")
@@ -29,7 +29,7 @@ vehicle.photo.attach(io: file, filename: 'vehicle.jpeg', content_type: 'image/jp
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: "#{random.pop}@email.com",
-    password: 123123,
+    password: 123_123,
   )
 end
 puts "...created #{User.count} host users."
@@ -43,8 +43,8 @@ images.each do |category, file_names|
       brand: Faker::Vehicle.make,
       model: Faker::Vehicle.model,
       category: category,
-      location: Faker::Address.city,
-      price: rand(5000..30000),
+      location: %w[Tokyo Shibuya Meguro Shinagawa Kyoto Kanagawa Okinawa Paris].sample,
+      price: rand(5000..30_000),
       description: Faker::Vehicle.standard_specs.join(', ')
     )
     file = File.open("app/assets/images/vehicles/#{category}/#{file_name}.jpeg")
@@ -56,11 +56,11 @@ puts "...created #{Vehicle.count} vehicles."
 puts "Creating guest users..."
 10.times do
   User.create!(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: "#{random.pop}@email.com",
-  password: 123123,
-)
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: "#{random.pop}@email.com",
+    password: 123_123
+  )
 end
 puts "...created #{User.count} users."
 

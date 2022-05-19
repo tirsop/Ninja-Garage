@@ -34,7 +34,7 @@
             <%= simple_form_for [@vehicle, @booking] do |f| %>
               <%= f.input :start_date, html5: true %>
               <%= f.input :return_date, html5: true %>
-              <%= f.submit 'Book', class: 'btn btn-primary' %>
+              <div class="d-grid"><%= f.submit 'Book', class: 'btn btn-danger rounded-pill py-2 my-2' %></div>
             <% end %>
           </div>
         </div>

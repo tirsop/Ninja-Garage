@@ -1,4 +1,23 @@
 <div class="container d-flex justify-content-center">
   <h1 class="slogan p-5">🎌 All of our vehicles 🎌</h1>
 </div>
-<%= render partial: "car_cards" %>
+<div class="container">
+  <div class="row justify-content-center pb-5">
+    <div class="col-12 col-sm-8 col-lg-6">
+      <%= form_tag vehicles_path, method: :get, class:'d-flex' do %>
+        <%= select_tag :category,
+            options_for_select(Vehicle::CATEGORIES, params[:category]),
+            class: "form-control",
+            prompt: "Vehicle Type"
+        %>
+        <%= text_field_tag :location,
+            params[:location],
+            class: "form-control",
+            placeholder: "Location"
+        %>
+        <%= submit_tag "Search", class: "btn btn-danger" %>
+      <% end %>
+    </div>
+  </div>
+  <%= render "car_cards" %>
+</div>

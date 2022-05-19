@@ -8,7 +8,7 @@ class VehiclesController < ApplicationController
       {
         lat: vehicle.latitude,
         lng: vehicle.longitude,
-        # info_window: render_to_string(partial: "info_window", locals: { flat: flat })
+        info_window: render_to_string(partial: "info_window", locals: { vehicle: vehicle })
       }
     end
   end

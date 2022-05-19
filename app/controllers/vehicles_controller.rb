@@ -9,7 +9,7 @@ class VehiclesController < ApplicationController
       else
         policy_scope(Vehicle)
       end
-    @vehicles = @vehicles.near(params[:location]) if params[:location]
+    @vehicles = @vehicles.near(params[:location], 50) if params[:location]
     @markers = @vehicles.geocoded.map do |vehicle|
       {
         lat: vehicle.latitude,

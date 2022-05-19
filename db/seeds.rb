@@ -3,7 +3,7 @@ Review.destroy_all
 User.destroy_all
 random = (1..20).to_a.shuffle
 # path for local images. assets/images/vehicles/-->hash_keys
-images = { Bosozoku_Bike: (1..6).to_a, Decotora: (1..4).to_a, Itasha: (1..8).to_a }
+images = { Bosozoku_Bike: (1..10).to_a, Decotora: (1..6).to_a, Itasha: (1..9).to_a }
 
 puts "Creating host users..."
 User.create!(
@@ -43,7 +43,7 @@ images.each do |category, file_names|
       brand: Faker::Vehicle.make,
       model: Faker::Vehicle.model,
       category: category,
-      location: %w[Tokyo Shibuya Meguro Shinagawa Kyoto Kanagawa Okinawa Paris].sample,
+      location: %w[Tokyo Shibuya Meguro Shinagawa Shinjuku Mizonokuchi Ueno Koenji Yokohama Kawasaki Kyoto Gumma Tochigi Nagano Fukuoka Kagoshima Kumamoto Amagasaki].sample,
       price: rand(5000..30_000),
       description: Faker::Vehicle.standard_specs.join(', ')
     )

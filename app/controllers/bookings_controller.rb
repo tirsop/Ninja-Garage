@@ -21,7 +21,10 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     if @booking.update(booking_params)
-      redirect_to owner_bookings_path, notice: 'Booking was succesfully updated.'
+      respond_to do |format|
+        format.html { redirect_to owner_bookings_path(anchor: "booking-#{@booking.id}"), notice: 'Booking was succesfully updated.' }
+        format.js # look for a JS view with the same action name
+      end
     else
       render :edit
     end

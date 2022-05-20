@@ -13,7 +13,8 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to bookings_path
     else
-      render "vehicles/show"
+      # render "vehicles/show"
+      redirect_to vehicle_path(@vehicle), notice: @booking.errors.messages[:return_date].first
     end
   end
 

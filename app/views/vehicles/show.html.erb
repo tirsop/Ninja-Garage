@@ -34,8 +34,8 @@
           <div class="vehicle-book-form">
             <p class="vehicle-price"><%= number_to_currency(@vehicle.price, {unit: '¥', precision: 0}) %> / day</p>
             <%= simple_form_for [@vehicle, @booking] do |f| %>
-              <%= f.input :start_date, html5: true %>
-              <%= f.input :return_date, html5: true %>
+              <%= f.input :start_date, html5: true, input_html: { min: Date.today } %>
+              <%= f.input :return_date, html5: true, input_html: { min: Date.today } %>
               <div class="d-grid"><%= f.submit 'Book', class: 'btn btn-danger rounded-pill py-2 my-2' %></div>
             <% end %>
           </div>

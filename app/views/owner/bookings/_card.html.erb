@@ -1,49 +1,33 @@
 <% booking.status == "accepted"? card_color="green": card_color=""%>
-<div class="card-owner-booking m-5 <%=card_color%>" id="booking-<%= booking.id %>">
-  <% start_date = booking.start_date %>
-  <% return_date = booking.return_date %>
-  <div class="owner-booking-card d-flex justify-content-between align-items-center">
-    <% if booking.status == 'rejected' %>
-      <div>
-        <div class="card-booking-picture" style="color:white; background-image: url(<%= cl_image_path(booking.vehicle.photo.key)%>)"></div>
-      </div>
-    <% elsif booking.status == 'pending' %>
-      <div>
-        <div class="card-booking-picture" style="color:white; background-image: url(<%= cl_image_path(booking.vehicle.photo.key)%>)"></div>
-      </div>
-    <% else %>
-      <div>
-        <div class="card-booking-picture" style="color:white; background-image: url(<%= cl_image_path(booking.vehicle.photo.key)%>)"></div>
-      </div>
-    <% end %>
-    <h2 style="text-align:center"><%= booking.vehicle.brand %> : <%= booking.vehicle.model %></h2>
-    <div class="m-4">
-      <div class="container">
-        <p>From: <%= booking.start_date %></p>
-        <p>Until: <%= booking.return_date %></p>
-        <p>Location: <%= booking.vehicle.location %></p>
-        <% total = booking.vehicle.price * (return_date - start_date).to_i %>
-        <p>Total Price: <%= number_to_currency(total, {unit: '¥', precision: 0}) %></p>
-      </div>
-      <div class="container mb-4"><%= link_to "See more about your car : #{booking.vehicle.model}" ,vehicle_path(booking.vehicle), class: "btn btn-primary mt-5", style: "color:white" %></div>
-    </div>
-    <div class="m-4">
-      <p>Guest: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
-      <div class="d-flex justify-content-between">
-        <% if booking.status == "pending" %>
-          <%= simple_form_for booking, remote: true do |f| %>
-            <%= f.input :status, as: :hidden, input_html:{value:"accepted"} %>
-            <%= f.submit "accept", class: 'btn btn-primary mt-2' %>
+<% start_date = booking.start_date %>
+<% return_date = booking.return_date %>
+<% total = booking.vehicle.price * (return_date - start_date).to_i %>
+<div class="container">
+  <div class="row">
+    <div class="p-0 card-owner-booking <%=card_color%> m-5" id="booking-<%= booking.id %>">
+      <div class="owner-booking-card d-flex justify-content-between align-items-center">
+        <!--div class="card-booking-picture" style="color:white; background-image: url(<%= cl_image_path(booking.vehicle.photo.key)%>)"></div><-->
+        <%= link_to vehicle_path(booking.vehicle) do %>
+          <%= cl_image_tag booking.vehicle.photo.key, width: 300 %>
+          <div class="container">
+            <h2 style="text-align:left"><%= booking.vehicle.brand %> : <%= booking.vehicle.model %></h2>
+            <p><i class="fas fa-calendar-alt"></i> <%= booking.start_date %> <i class="fas fa-angle-double-right"></i> <%= booking.return_date %></p>
+            <p><i class="fas fa-map-marker-alt"></i> <%= booking.vehicle.location %></p>
+            <% if booking.vehicle.user == current_user %>
+              <p><i class="fas fa-user"></i> <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+            <% else %>
+              <p><i class="fas fa-user-check"></i> <%= booking.vehicle.user.first_name %> <%= booking.vehicle.user.last_name %>
+              </p>
+            <% end %>
           <% end %>
-          <%= simple_form_for booking, remote: true do |f| %>
-            <%= f.input :status, as: :hidden, input_html:{value:"rejected"} %>
-            <%= f.submit "decline", class: 'btn btn-danger mt-2' %>
+        </div>
+        <div class="mx-4">
+          <% if booking.vehicle.user == current_user %>
+            <%= render "owner/bookings/owner_status", booking: booking %>
+          <% else %>
+            <%= render "bookings/guest_status", booking: booking %>
           <% end %>
-        <% elsif booking.status == "accepted" %>
-          <h2 style="color:green">Accepted</h2>
-        <% else %>
-          <h2 style="color:red">Rejected</h2>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>

@@ -73,6 +73,12 @@ puts "Creating bookings..."
     return_date: Date.tomorrow
   )
 end
+
+# Users can not book their own car. It gets confusing.
+Booking.all.each do |booking|
+  booking.destroy if booking.user == booking.vehicle.user
+end
+
 puts "...created #{Booking.count} bookings."
 
 puts "Creating reviews..."

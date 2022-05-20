@@ -1,40 +1,5 @@
 <div class="bookings">
   <% @bookings.each do |booking| %>
-    <div class="card-booking m-4">
-      <% start_date = booking.start_date %>
-      <% return_date = booking.return_date %>
-      <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> %>
-      <%# <%= cl_image_tag(booking.vehicle.photo.key) %>
-      <% if booking.status == 'rejected' %>
-        <div class="card-booking-picture" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url(<%= cl_image_path(booking.vehicle.photo.key)%>)">Status : <%= booking.status.capitalize %></div>
-      <% elsif booking.status == 'pending' %>
-        <div class="card-booking-picture" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(255,255,255,0.8)), url(<%= cl_image_path(booking.vehicle.photo.key)%>)">Status : <%= booking.status.capitalize %></div>
-      <% else %>
-        <div class="card-booking-picture" style="background-image: url(<%= cl_image_path(booking.vehicle.photo.key)%>)"></div>
-      <% end %>
-      <%# <%= cl_image_tag(booking.photo.key,
-              width: 400, height: 300, crop: :fill) %>
-      <div class="card-booking-infos">
-        <div>
-          <h2><%= booking.vehicle.model %></h2>
-          <p>Starts on <%= start_date %></p>
-          <p>Return on <%= return_date %></p>
-          <% total = booking.vehicle.price * (return_date - start_date).to_i %>
-          <h2 class="card-booking-pricing"><%= number_to_currency(total, {unit: '¥', precision: 0}) %></h2>
-        </div>
-        <div>
-          <p>Status : <%= booking.status %></p>
-          <%= link_to "See more about #{booking.vehicle.model}", vehicle_path(booking.vehicle), class: "btn booking-more-btn" %>
-        </div>
-      </div>
-    </div>
+    <%= render "owner/bookings/card", booking: booking %>
   <% end %>
 </div>
-<%# class Booking < ApplicationRecord
-  belongs_to :user
-  belongs_to :vehicle
-  validates :start_date, presence: true
-  validates :return_date, presence: true
-  validates :status, presence: true
-  enum status: { pending: 0, accepted: 1, rejected: 2 }
-end %>

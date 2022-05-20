@@ -35,7 +35,7 @@
             <% if booking.status == "pending" %>
               <h2 style="color:black">Pending</h2>
             <% elsif booking.status == "accepted" %>
-              <%= render 'payment' %>
+              <h2 style="color:green">Accepted</h2>
             <% else %>
               <h2 style="color:red">Rejected</h2>
             <% end %>

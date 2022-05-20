@@ -24,10 +24,15 @@
     transform: scale(1.2) translate(-10%, -10%);
   }
 
-  input:checked ~ input:before {
+  input:checked~input:before {
     color: #fff;
   }
 }
+
 .stars-show {
   color: rgb(255, 187, 0);
+}
+
+.username {
+  color: grey;
 }

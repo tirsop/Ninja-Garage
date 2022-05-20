@@ -1,9 +1,12 @@
-<div class="container info-window">
-  <p><strong><%= vehicle.brand %></strong></p>
-  <p><%= vehicle.location %></p>
-  <p><%= number_to_currency(vehicle.price, {unit: '¥', precision: 0}) %></p>
-  <%= cl_image_tag(vehicle.photo.key) %>
-  <%# link to not wrking %>
-  <%= link_to "See more about #{vehicle.model}", vehicle_path(vehicle) %>
-</div>
+<%= link_to vehicle_path(vehicle), class: 'maplink' do %>
+  <div class="container info-window">
+    <%= cl_image_tag(vehicle.photo.key) %>
+    <h3><strong><%= "#{vehicle.brand} #{vehicle.model}" %></strong></h3>
+    <p><%= vehicle.category %></p>
+    <p><%= vehicle.location %></p>
+    <h5><%= "#{number_to_currency(vehicle.price, {unit: '¥', precision: 0})} / day" %></h5>
+    <%# link to not wrking %>
+    <%# <%= link_to "See more about #{vehicle.model}", vehicle_path(vehicle) %>
+  </div>
+<% end %>
 <%# Go to assets/componets/_map to change style %>

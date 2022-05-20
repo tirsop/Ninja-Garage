@@ -8,3 +8,15 @@
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
+
+.search1 {
+  border: none;
+  background-color: white;
+  border-radius: 36px 0 0 36px;
+}
+.search2 {
+  border: none;
+  background-color: white;
+  border-radius: 0 36px 36px 0;
+  margin-right: 16px;
+}

@@ -13,7 +13,8 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to bookings_path
     else
-      render "vehicles/show"
+      # render "vehicles/show"
+      redirect_to vehicle_path(@vehicle), notice: @booking.errors.messages[:return_date].first
     end
   end
 
@@ -21,7 +22,10 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     if @booking.update(booking_params)
-      redirect_to owner_bookings_path, notice: 'Booking was succesfully updated.'
+      respond_to do |format|
+        format.html { redirect_to owner_bookings_path(anchor: "booking-#{@booking.id}"), notice: 'Booking was succesfully updated.' }
+        format.js # look for a JS view with the same action name
+      end
     else
       render :edit
     end

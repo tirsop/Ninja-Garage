@@ -3,7 +3,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   background-size: cover;
-
+  border-radius: 8px;
   background-position: center;
   border-radius: 1px;
   // display: flex;
@@ -43,7 +43,12 @@
   margin: 0;
 }
 
-
+.booking-more-btn {
+  border-radius: 36px;
+  color: white;
+  padding: 12px 24px;
+  background-color: $red;
+}
 
 
 .card-booking .card-booking-infos {

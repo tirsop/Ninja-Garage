@@ -19,6 +19,14 @@
 
     a {
       margin-top: 16px;
+      border-radius: 36px;
+      padding: 12px 24px;
+      background-color: $red;
+      color: white;
+      opacity: 0.9;
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 

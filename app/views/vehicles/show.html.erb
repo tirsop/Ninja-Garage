@@ -5,7 +5,7 @@
     <h1 class="vehicle-title"><%= @vehicle.brand %> <%= @vehicle.model %></h1>
   </div>
   <div class="container d-flex justify-content-center">
-    <p><%= @vehicle.category %></p>
+    <p class="text-danger"><%= @vehicle.category %></p>
   </div>
   <div class="content container p-3">
     <div class="row position-relative">
@@ -18,6 +18,7 @@
           <p><strong>Other features:</strong></p>
           <p><%= @vehicle.description %></p>
         </div>
+        <%# -------------OWNER INFO------------- %>
         <div class="notification my-5">
           <%= image_tag "avatar.jpg", class: "avatar-large" %>
           <div class="notification-content">
@@ -26,15 +27,20 @@
           </div>
         </div>
       </div>
+
+      <%# -------------BOOKING FORM------------- %>
       <div data-controller="calculation" class="col-xs-12 col-sm-5" >
         <div class="card m-3 p-3" id="book">
           <h2>Rent this vehicle</h2>
           <div class="vehicle-book-form">
             <p class="vehicle-price"><%= number_to_currency(@vehicle.price, {unit: '¥', precision: 0}) %> / day</p>
             <%= simple_form_for [@vehicle, @booking] do |f| %>
-              <%= f.input :start_date, html5: true, input_html:{data:{calculation_target:"startDate", action:"change->calculation#calculate"}} %>
-              <%= f.input :return_date, html5: true, input_html:{data:{calculation_target:"returnDate", action:"change->calculation#calculate"}} %>
-              <div> ¥<span data-calculation-target="price"><%= @vehicle.price %></span> x <span data-calculation-target="days">2</span>days = ¥<span data-calculation-target="total">14000</span>            </div>
+
+              <%= f.input :start_date, html5: true, input_html:{data:{calculation_target:"startDate", action:"change->calculation#calculate"}, min: Date.today} %>
+              <%= f.input :return_date, html5: true, input_html:{data:{calculation_target:"returnDate", action:"change->calculation#calculate"}, min: Date.today} %>
+              <div>
+                ¥<span data-calculation-target="price"><%= @vehicle.price %></span> x <span data-calculation-target="days">2</span>days = ¥<span data-calculation-target="total">14000</span>            
+              </div>
               <div class="d-grid"><%= f.submit 'Book', class: 'btn btn-danger rounded-pill py-2 my-2' %></div>
             <% end %>
           </div>
@@ -42,6 +48,7 @@
       </div>
     </div>
   </div>
+  <%# -------------OTHER VEHICLES OF THE OWNER------------- %>
   <div class="container p-3 mt-4">
     <h3><%= "#{@vehicle.user.first_name}'s Vehicles" %></h3>
     <div class="cards">
@@ -61,23 +68,23 @@
       <% end %>
     </div>
   </div>
+  <%# -------------LIST OF REVIEWS-------------- %>
   <div class="container p-3 m-3">
     <h3>Reviews</h3>
-    <% @reviews.each do |review| %>
-      <div class="d-flex stars-show pb-2">
-        <% review.rating.times do %>
-          <i class="fas fa-star"></i>
+    <div id="reviews">
+      <% if @vehicle.reviews.blank? %>
+        Be the first to review for this <%= @vehicle.brand %>!
+      <% else %>
+        <% @vehicle.reviews.each do |review| %>
+          <%= render 'reviews/review', review: review %>
         <% end %>
-        <% (5 - review.rating).times do %>
-          <i class="far fa-star"></i>
-        <% end %>
-      </div>
-      <p><%= review.content %></p>
-    <% end %>
+      <% end %>
+    </div>
   </div>
+  <%# -------------FORM FOR THE REVIEWS-------------- %>
   <div class="card p-5 m-3">
     <h3>How was your experience?</h3>
-    <%=  simple_form_for [@vehicle, @review] do |f| %>
+    <%=  simple_form_for [@vehicle, @review], remote: true do |f| %>
       <div class="star-rating mb-5">
         <% 5.times do |i| %>
           <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />

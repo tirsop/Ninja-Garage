@@ -6,7 +6,10 @@ class ReviewsController < ApplicationController
     @review.vehicle = @vehicle
     authorize @review
     if @review.save
-      redirect_to vehicle_path(@vehicle)
+      respond_to do |format|
+        format.html { redirect_to vehicle_path(@review.vehicle, anchor: "review-#{@review.id}") }
+        format.js # look for a JS view with the same action name
+      end
     else
       render :new
     end

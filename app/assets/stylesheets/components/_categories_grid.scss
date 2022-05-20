@@ -3,6 +3,9 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   margin-bottom: 100px;
+  a {
+    text-decoration: none;
+  }
 }
 .slogan {
   font-size: 64px;

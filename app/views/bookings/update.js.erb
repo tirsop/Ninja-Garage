@@ -1,4 +1,3 @@
-console.log("pepe");
 function updateCard() {
 const card = document.querySelector("#booking-<%= @booking.id %>")
 card.outerHTML = "<%= j render 'owner/bookings/card', booking: @booking %>"

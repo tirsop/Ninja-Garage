@@ -4,9 +4,6 @@
     <div class="card-owner-booking m-5 <%=card_color%>">
       <% start_date = booking.start_date %>
       <% return_date = booking.return_date %>
-      <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> %>
-      <%# <%= cl_image_tag(booking.photo.key,
-              width: 400, height: 300, crop: :fill) %>
       <div class="owner-booking-card d-flex justify-content-between align-items-center">
         <% if booking.status == 'rejected' %>
           <div>
@@ -55,11 +52,3 @@
     </div>
   <% end %>
 </div>
-<%# class Booking < ApplicationRecord
-  belongs_to :user
-  belongs_to :vehicle
-  validates :start_date, presence: true
-  validates :return_date, presence: true
-  validates :status, presence: true
-  enum status: { pending: 0, accepted: 1, rejected: 2 }
-end %>

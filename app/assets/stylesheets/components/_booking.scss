@@ -1,4 +1,4 @@
-.card-booking {
+.card-guest-booking {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -11,7 +11,7 @@
   justify-content: space-around;
 }
 
-.card-booking-picture {
+.card-guest-booking-picture {
   background-size: cover;
   background-position: center;
   height: 300px;
@@ -26,19 +26,19 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card-booking > img {
+.card-guest-booking > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
 }
 
-.card-booking h2 {
+.card-guest-booking h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-booking p {
+.card-guest-booking p {
   font-size: 24px;
   margin: 0;
 }
@@ -46,7 +46,7 @@
 
 
 
-.card-booking .card-booking-infos {
+.card-guest-booking .card-guest-booking-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -54,7 +54,7 @@
   position: relative;
 }
 
-.card-booking-infos .card-booking-user {
+.card-guest-booking-infos .card-guest-booking-user {
   position: absolute;
   right: 16px;
   top: -20px;

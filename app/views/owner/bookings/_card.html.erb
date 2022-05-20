@@ -1,20 +1,25 @@
 <% booking.status == "accepted"? card_color="green": card_color=""%>
 <% start_date = booking.start_date %>
 <% return_date = booking.return_date %>
+<% total = booking.vehicle.price * (return_date - start_date).to_i %>
 <div class="container">
   <div class="row">
     <div class="p-0 card-owner-booking <%=card_color%> m-5" id="booking-<%= booking.id %>">
       <div class="owner-booking-card d-flex justify-content-between align-items-center">
-        <div class="card-booking-picture" style="color:white; background-image: url(<%= cl_image_path(booking.vehicle.photo.key)%>)"></div>
-        <h2 style="text-align:center"><%= booking.vehicle.brand %> : <%= booking.vehicle.model %></h2>
-        <div class="m-4">
+        <!--div class="card-booking-picture" style="color:white; background-image: url(<%= cl_image_path(booking.vehicle.photo.key)%>)"></div><-->
+        <%= link_to vehicle_path(booking.vehicle) do %>
+          <%= cl_image_tag booking.vehicle.photo.key, width: 300 %>
           <div class="container">
+            <h2 style="text-align:left"><%= booking.vehicle.brand %> : <%= booking.vehicle.model %></h2>
             <p><i class="fas fa-calendar-alt"></i> <%= booking.start_date %> <i class="fas fa-angle-double-right"></i> <%= booking.return_date %></p>
             <p><i class="fas fa-map-marker-alt"></i> <%= booking.vehicle.location %></p>
-            <% total = booking.vehicle.price * (return_date - start_date).to_i %>
-            <p><i class="fas fa-money-bill-alt"></i> <%= number_to_currency(total, {unit: '¥', precision: 0}) %></p>
-          </div>
-          <div class="container mb-4"><%= link_to "See more about #{booking.vehicle.model}" ,vehicle_path(booking.vehicle), class: "btn btn-primary mt-5", style: "color:white" %></div>
+            <% if booking.vehicle.user == current_user %>
+              <p><i class="fas fa-user"></i> <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+            <% else %>
+              <p><i class="fas fa-user-check"></i> <%= booking.vehicle.user.first_name %> <%= booking.vehicle.user.last_name %>
+              </p>
+            <% end %>
+          <% end %>
         </div>
         <div class="m-4">
           <% if booking.vehicle.user == current_user %>
@@ -24,23 +29,6 @@
           <% end %>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-<div class="historyFeedItem historyFeedItem-topBorder">
-  <div class="historyFeedItem-link">
-    <a class="historyFeedItem-details" href="/us/en/reservation/4495995">
-      <div class="historyFeedItem-vehicle">
-        <img alt="Ford" class="css-w0og5s-StyledImage-StyledVehicleImage" src="https://images.turo.com/media/vehicle/images/RxiT_cVKSmmelRsd6WlWTg.105x75.jpg" srcset="https://images.turo.com/media/vehicle/images/RxiT_cVKSmmelRsd6WlWTg.105x75.jpg 1x, https://images.turo.com/media/vehicle/images/RxiT_cVKSmmelRsd6WlWTg.210x150.jpg 2x">
-      </div>
-      <div class="historyFeedItem-summary">
-        <p class="css-13lldtg-StyledText">Your trip</p>
-        <p class="css-1nt2g9q-StyledText">Ford Crown Victoria 2011</p>
-        <p class="css-1j0t13m-StyledText-HistoryFeedItem-content">May 26 - Jun 10</p>
-      </div>
-    </a>
-    <div class="historyFeedItem-buttons">
-      <a class="buttonSchumi buttonSchumi--medium buttonSchumi--purple" href="/us/en/reservation/4495995">View details</a>
     </div>
   </div>
 </div>

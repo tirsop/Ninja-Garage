@@ -1,0 +1,50 @@
+<% booking.status == "accepted"? card_color="green": card_color=""%>
+<div class="card-owner-booking m-5 <%=card_color%>" id="booking-<%= booking.id %>">
+  <% start_date = booking.start_date %>
+  <% return_date = booking.return_date %>
+  <div class="owner-booking-card d-flex justify-content-between align-items-center">
+    <% if booking.status == 'rejected' %>
+      <div>
+        <div class="card-booking-picture" style="color:white; background-image: url(<%= cl_image_path(booking.vehicle.photo.key)%>)"></div>
+      </div>
+    <% elsif booking.status == 'pending' %>
+      <div>
+        <div class="card-booking-picture" style="color:white; background-image: url(<%= cl_image_path(booking.vehicle.photo.key)%>)"></div>
+      </div>
+    <% else %>
+      <div>
+        <div class="card-booking-picture" style="color:white; background-image: url(<%= cl_image_path(booking.vehicle.photo.key)%>)"></div>
+      </div>
+    <% end %>
+    <h2 style="text-align:center"><%= booking.vehicle.brand %> : <%= booking.vehicle.model %></h2>
+    <div class="m-4">
+      <div class="container">
+        <p>From: <%= booking.start_date %></p>
+        <p>Until: <%= booking.return_date %></p>
+        <p>Location: <%= booking.vehicle.location %></p>
+        <% total = booking.vehicle.price * (return_date - start_date).to_i %>
+        <p>Total Price: <%= number_to_currency(total, {unit: '¥', precision: 0}) %></p>
+      </div>
+      <div class="container mb-4"><%= link_to "See more about your car : #{booking.vehicle.model}" ,vehicle_path(booking.vehicle), class: "btn btn-primary mt-5", style: "color:white" %></div>
+    </div>
+    <div class="m-4">
+      <p>Guest: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+      <div class="d-flex justify-content-between">
+        <% if booking.status == "pending" %>
+          <%= simple_form_for booking, remote: true do |f| %>
+            <%= f.input :status, as: :hidden, input_html:{value:"accepted"} %>
+            <%= f.submit "accept", class: 'btn btn-primary mt-2' %>
+          <% end %>
+          <%= simple_form_for booking, remote: true do |f| %>
+            <%= f.input :status, as: :hidden, input_html:{value:"rejected"} %>
+            <%= f.submit "decline", class: 'btn btn-danger mt-2' %>
+          <% end %>
+        <% elsif booking.status == "accepted" %>
+          <h2 style="color:green">Accepted</h2>
+        <% else %>
+          <h2 style="color:red">Rejected</h2>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

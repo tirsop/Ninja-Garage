@@ -9,6 +9,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
+          <%# <li class="nav-item active nav-link">
+            <%= link_to "+ Vehicle", new_vehicle_path %>
+          <%# </li> %>
           <li class="nav-item active nav-link">
             <%= current_user.first_name %>
           </li>
@@ -28,6 +31,7 @@
               <%= link_to owner_bookings_path do %>
                 <p class="dropdown-item"><%= "Vehicles: #{current_user.vehicles.count}" %></p>
               <% end %>
+              <%= link_to "Add a vehicle", new_vehicle_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>

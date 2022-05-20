@@ -7,15 +7,15 @@
       <%= form_tag vehicles_path, method: :get, class:'d-flex' do %>
         <%= select_tag :category,
             options_for_select(Vehicle::CATEGORIES, params[:category]),
-            class: "form-control",
+            class: "form-control search1",
             prompt: "Vehicle Type"
         %>
         <%= text_field_tag :location,
             params[:location],
-            class: "form-control",
+            class: "form-control search2",
             placeholder: "Location"
         %>
-        <%= submit_tag "Search", class: "btn btn-danger" %>
+        <%= submit_tag "Search", class: "btn btn-danger booking-more-btn" %>
       <% end %>
     </div>
   </div>

@@ -5,7 +5,7 @@
   background-size: cover;
 
   background-position: center;
-  border-radius: 1px;
+  border-radius: 8px;
   // display: flex;
   align-items: center;
   justify-content: space-around;
@@ -19,7 +19,7 @@
 }
 
 .card-trip h2 {
-  font-size: 16px;
+  // font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
@@ -46,7 +46,32 @@
   width: 40px;
 }
 
+.card-trip-infos h2 {
+  font-size: 16px;
+}
+.card-trip-pricing {
+  color: $red;
+  font-family: 'Smooch', cursive;
+  font-size: 20px;
+}
+.pricing-day {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+}
+
 .cards {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  padding: 16px;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+.cards-home {
   flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;

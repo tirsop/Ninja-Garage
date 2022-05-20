@@ -4,11 +4,11 @@
 <% total = booking.vehicle.price * (return_date - start_date).to_i %>
 <div class="container">
   <div class="row">
-    <div class="p-0 card-owner-booking <%=card_color%> m-5" id="booking-<%= booking.id %>">
+    <div class="p-0 card-owner-booking <%=card_color%> mt-5" id="booking-<%= booking.id %>">
       <div class="owner-booking-card d-flex justify-content-between align-items-center">
         <!--div class="card-booking-picture" style="color:white; background-image: url(<%= cl_image_path(booking.vehicle.photo.key)%>)"></div><-->
         <%= link_to vehicle_path(booking.vehicle) do %>
-          <%= cl_image_tag booking.vehicle.photo.key, width: 300 %>
+          <%= cl_image_tag booking.vehicle.photo.key, width: 300, height: 200, crop: :fill %>
           <div class="container">
             <h2 style="text-align:left"><%= booking.vehicle.brand %> : <%= booking.vehicle.model %></h2>
             <p><i class="fas fa-calendar-alt"></i> <%= booking.start_date %> <i class="fas fa-angle-double-right"></i> <%= booking.return_date %></p>

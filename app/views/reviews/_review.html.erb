@@ -1,0 +1,13 @@
+<div class="d-flex stars-show pb-2" id="review-<%= review.id %> review_content">
+  <div class="username me-3">
+    <%= review.user.first_name %>
+    <%= review.user.last_name %>
+  </div>
+  <% review.rating.times do %>
+    <i class="fas fa-star"></i>
+  <% end %>
+  <% (5 - review.rating).times do %>
+    <i class="far fa-star"></i>
+  <% end %>
+</div>
+<p><%= review.content %></p>

@@ -30,7 +30,7 @@
     </div>
     <%# -------------BOOKING FORM------------- %>
     <div data-controller="calculation" class="col-xs-12 col-sm-5" >
-      <div class="card m-3 p-3" id="book">
+      <div class="comment-form m-3 p-3" id="book">
         <h2>Rent this vehicle</h2>
         <div class="vehicle-book-form">
           <p class="vehicle-price"><%= number_to_currency(@vehicle.price, {unit: '¥', precision: 0}) %> / day</p>
@@ -82,7 +82,7 @@
     </div>
   </div>
   <%# -------------FORM FOR THE REVIEWS-------------- %>
-  <div class="card p-5 m-3">
+  <div class="comment-form p-5 m-3">
     <h3>How was your experience?</h3>
     <%=  simple_form_for [@vehicle, @review], remote: true do |f| %>
       <div class="star-rating mb-5">

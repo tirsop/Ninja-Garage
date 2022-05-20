@@ -7,10 +7,12 @@
   font-family: 'Smooch', cursive;
   font-size: 56px;
 }
+
 .vehicle-price {
   font-weight: 700;
   font-size: 32px;
 }
+
 .vehicle-show-owner {
   width: 100px;
   height: 100px;
@@ -18,4 +20,8 @@
 
 .vehicle-book-form {
   border: none;
+}
+
+.total-price {
+  font-size: 20px;
 }

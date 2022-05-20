@@ -1,0 +1,14 @@
+<% if booking.status == "pending" %>
+  <%= simple_form_for booking, remote: true do |f| %>
+    <%= f.input :status, as: :hidden, input_html:{value:"accepted"} %>
+    <%= f.submit "accept", class: 'btn btn-primary mt-2' %>
+  <% end %>
+  <%= simple_form_for booking, remote: true do |f| %>
+    <%= f.input :status, as: :hidden, input_html:{value:"rejected"} %>
+    <%= f.submit "decline", class: 'btn btn-danger mt-2' %>
+  <% end %>
+<% elsif booking.status == "accepted" %>
+  <h2 style="color:green">Accepted</h2>
+<% else %>
+  <h2 style="color:red">Rejected</h2>
+<% end %>

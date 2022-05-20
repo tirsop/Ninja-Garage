@@ -1,0 +1,10 @@
+<p>Owner: <%= booking.vehicle.user.first_name %> <%= booking.vehicle.user.last_name %></p>
+<div class="d-flex justify-content-between">
+  <% if booking.status == "pending" %>
+    <h2 style="color:black">Pending</h2>
+  <% elsif booking.status == "accepted" %>
+    <h2 style="color:green">Accepted</h2>
+  <% else %>
+    <h2 style="color:red">Rejected</h2>
+  <% end %>
+</div>

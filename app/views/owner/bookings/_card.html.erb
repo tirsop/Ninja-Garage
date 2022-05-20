@@ -25,13 +25,14 @@
         <% total = booking.vehicle.price * (return_date - start_date).to_i %>
         <p>Total Price: <%= number_to_currency(total, {unit: '¥', precision: 0}) %></p>
       </div>
-      <div class="container mb-4"><%= link_to "See more about your car : #{booking.vehicle.model}" ,vehicle_path(booking.vehicle), class: "btn btn-primary mt-5", style: "color:white" %></div>
+      <div class="container mb-4"><%= link_to "See more about #{booking.vehicle.model}" ,vehicle_path(booking.vehicle), class: "btn btn-primary mt-5", style: "color:white" %></div>
     </div>
     <div class="m-4">
-      <p>Guest: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
-      <div class="d-flex justify-content-between">
+      <% if user == :guest %>
         <%= render "owner/bookings/owner_status", booking: booking %>
-      </div>
+      <% else %>
+        <%= render "guest_status", booking: booking %>
+      <% end %>
     </div>
   </div>
 </div>

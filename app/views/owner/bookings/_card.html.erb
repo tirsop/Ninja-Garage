@@ -21,7 +21,7 @@
             <% end %>
           <% end %>
         </div>
-        <div class="m-4">
+        <div class="mx-4">
           <% if booking.vehicle.user == current_user %>
             <%= render "owner/bookings/owner_status", booking: booking %>
           <% else %>

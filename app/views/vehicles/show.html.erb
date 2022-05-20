@@ -1,50 +1,55 @@
-<div class="m-3">
+<div class="container">
   <div class="item card-category" style="height: 600px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @vehicle.photo.attached? ? cl_image_path(@vehicle.photo.key) : image_path('https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg') %>)">
   </div>
-  <div class="container d-flex justify-content-center pt-1 mt-3">
-    <h1 class="vehicle-title"><%= @vehicle.brand %> <%= @vehicle.model %></h1>
-  </div>
-  <div class="container d-flex justify-content-center">
-    <p class="text-danger"><%= @vehicle.category %></p>
-  </div>
-  <div class="content container p-3">
-    <div class="row position-relative">
-      <div class="col m-3">
-        <div>
-          <p><strong>Brand</strong>    : <%= @vehicle.brand %></p>
-          <p><strong>Model</strong>    : <%= @vehicle.model %></p>
-          <p><strong>Location</strong> : <%= @vehicle.location %></p>
-          <p><strong>Category</strong> : <%= @vehicle.category %></p>
-          <p><strong>Other features:</strong></p>
-          <p><%= @vehicle.description %></p>
-        </div>
-        <%# -------------OWNER INFO------------- %>
-        <div class="notification my-5">
-          <%= image_tag "yuki.jpg", class: "avatar-large" %>
-          <div class="notification-content">
-            <p><small>Owner</small></p>
-            <p><%= "#{@vehicle.user.first_name} #{@vehicle.user.last_name}" %></p>
+  <div class="d-flex mt-3">
+    <div>
+      <h1 class="vehicle-title"><%= @vehicle.brand %> <%= @vehicle.model %></h1>
+      <p class="text-danger"><%= @vehicle.category %></p>
+      <div class="content con</div>p-3">
+        <div class="row position-relative">
+          <div class="col m-3">
+            <div>
+              <p><strong>Brand</strong>    : <%= @vehicle.brand %></p>
+              <p><strong>Model</strong>    : <%= @vehicle.model %></p>
+              <p><strong>Location</strong> : <%= @vehicle.location %></p>
+              <p><strong>Category</strong> : <%= @vehicle.category %></p>
+              <p><strong>Other features:</strong></p>
+              <p><%= @vehicle.description %></p>
+            </div>
+            <%# -------------OWNER INFO------------- %>
+            <div class="notification my-5">
+              <%= image_tag "avatar.jpg", class: "avatar-large" %>
+              <div class="notification-content">
+                <p><small>Owner</small></p>
+                <p><%= "#{@vehicle.user.first_name} #{@vehicle.user.last_name}" %></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <%# -------------BOOKING FORM------------- %>
-      <div class="col-xs-12 col-sm-5" >
-        <div class="card m-3 p-3" id="book">
-          <h2>Rent this vehicle</h2>
-          <div class="vehicle-book-form">
-            <p class="vehicle-price"><%= number_to_currency(@vehicle.price, {unit: '¥', precision: 0}) %> / day</p>
-            <%= simple_form_for [@vehicle, @booking] do |f| %>
-              <%= f.input :start_date, html5: true %>
-              <%= f.input :return_date, html5: true %>
-              <div class="d-grid"><%= f.submit 'Book', class: 'btn btn-danger rounded-pill py-2 my-2' %></div>
-            <% end %>
-          </div>
+    </div>
+    <%# -------------BOOKING FORM------------- %>
+    <div data-controller="calculation" class="col-xs-12 col-sm-5" >
+      <div class="card m-3 p-3" id="book">
+        <h2>Rent this vehicle</h2>
+        <div class="vehicle-book-form">
+          <p class="vehicle-price"><%= number_to_currency(@vehicle.price, {unit: '¥', precision: 0}) %> / day</p>
+          <%= simple_form_for [@vehicle, @booking] do |f| %>
+            <%= f.input :start_date, html5: true, input_html:{data:{calculation_target:"startDate"}, min: Date.today} %>
+            <%= f.input :return_date, html5: true, input_html:{data:{calculation_target:"returnDate", action:"change->calculation#calculate"}, min: Date.today} %>
+            <div class="total-price my-3">
+              <strong>
+                ¥<span data-calculation-target="price"><%= @vehicle.price %></span> x <span data-calculation-target="days">1</span>days = ¥<span data-calculation-target="total"><%= @vehicle.price %></span>
+              </strong>
+            </div>
+            <div class="d-grid"><%= f.submit 'Book', class: 'btn btn-danger rounded-pill py-2 my-2' %></div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
   <%# -------------OTHER VEHICLES OF THE OWNER------------- %>
-  <div class="container p-3 mt-4">
+  <div class="p-3 mt-4">
     <h3><%= "#{@vehicle.user.first_name}'s Vehicles" %></h3>
     <div class="cards">
       <% @vehicle.user.vehicles.each do |vehicle| %>
@@ -64,7 +69,7 @@
     </div>
   </div>
   <%# -------------LIST OF REVIEWS-------------- %>
-  <div class="container p-3 m-3">
+  <div class="p-3 m-3">
     <h3>Reviews</h3>
     <div id="reviews">
       <% if @vehicle.reviews.blank? %>

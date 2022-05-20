@@ -1,5 +1,5 @@
 <div class="bookings">
   <% @bookings.each do |booking| %>
-    <%= render "owner/bookings/card", booking: booking, user: :guest %>
+    <%= render "owner/bookings/card", booking: booking %>
   <% end %>
 </div>

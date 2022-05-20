@@ -28,10 +28,10 @@
       <div class="container mb-4"><%= link_to "See more about #{booking.vehicle.model}" ,vehicle_path(booking.vehicle), class: "btn btn-primary mt-5", style: "color:white" %></div>
     </div>
     <div class="m-4">
-      <% if user == :guest %>
+      <% if booking.vehicle.user == current_user %>
         <%= render "owner/bookings/owner_status", booking: booking %>
       <% else %>
-        <%= render "guest_status", booking: booking %>
+        <%= render "bookings/guest_status", booking: booking %>
       <% end %>
     </div>
   </div>

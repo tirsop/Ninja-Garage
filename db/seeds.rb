@@ -21,7 +21,7 @@ vehicle = Vehicle.create!(
   price: rand(5000..30_000),
   description: Faker::Vehicle.standard_specs.join(', ')
 )
-file = File.open("app/assets/images/vehicles/Itasha/7.jpeg")
+file = File.open("app/assets/images/vehicles/Itasha/yuki.jpeg")
 vehicle.photo.attach(io: file, filename: 'vehicle.jpeg', content_type: 'image/jpeg')
 
 10.times do

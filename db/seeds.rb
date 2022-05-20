@@ -17,7 +17,7 @@ vehicle = Vehicle.create!(
   brand: Faker::Vehicle.make,
   model: Faker::Vehicle.model,
   category: "Itasha",
-  location: 'Meguro',
+  location: 'Yokohama',
   price: rand(5000..30_000),
   description: Faker::Vehicle.standard_specs.join(', ')
 )
@@ -43,7 +43,7 @@ images.each do |category, file_names|
       brand: Faker::Vehicle.make,
       model: Faker::Vehicle.model,
       category: category,
-      location: %w[Tokyo Shibuya Meguro Shinagawa Shinjuku Mizonokuchi Ueno Koenji Yokohama Kawasaki Kyoto Gumma Tochigi Nagano Fukuoka Kagoshima Kumamoto Amagasaki].sample,
+      location: %w[Shibuya Meguro Mizonokuchi Ueno Koenji Kawasaki Kyoto Gumma Tochigi Nagano Fukuoka Kagoshima Kumamoto Amagasaki].sample,
       price: rand(5000..30_000),
       description: Faker::Vehicle.standard_specs.join(', ')
     )

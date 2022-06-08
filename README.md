@@ -1,97 +1,68 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+# 🚗 Ninja Garage
 
-# 🤖 How to use github
+A marketplace where you can rent unique looking cars from the Japanese categories of "Itasha", "Bosozoku Bike", and "Decotora".
 
-=============================================================
+<p float="left">
+  <img src="https://user-images.githubusercontent.com/69304255/172329064-09f359a2-9a5c-4020-9bf8-4fd9b03b3df0.png" width="400" />
+  <img src="https://user-images.githubusercontent.com/69304255/172329091-1d392336-66d0-4963-810d-ab8fe61a2f15.png" width="400" /> 
+  <img src="https://user-images.githubusercontent.com/69304255/172329101-2b081059-4df0-4b23-8b3b-e18ae92a78e6.png" width="400" />
+  <img src="https://user-images.githubusercontent.com/69304255/172329103-40e75239-2628-4f0e-8856-734fabddd88d.png" width="400" />
+  <img src="https://user-images.githubusercontent.com/69304255/172329104-3c69b145-9e08-4d02-b7f7-3571ba76d630.png" width="400" />
+  <img src="https://user-images.githubusercontent.com/69304255/172329108-347dbe56-e95c-4639-bd2c-bfba5436a0cc.png" width="400" />
+</p>
 
-## 🏆 2 GOLDEN RULES
+<br>
+App home: https://ninja-garage.herokuapp.com/
+   
 
-=============================================================
+## Getting Started
+### Setup
 
-- **Never** commit directly to master. Use feature branches
+Install gems
+```
+bundle install
+```
+Install JS packages
+```
+yarn install
+```
 
-- **Always** make sure **git status is clean** before pull, checkout or merge.
+### ENV Variables
+Create `.env` file
+```
+touch .env
+```
+Inside `.env`, set these variables. For any APIs, see group Slack channel.
+```
+CLOUDINARY_URL=your_own_cloudinary_url_key
+```
 
-=============================================================
+### DB Setup
+```
+rails db:create
+rails db:migrate
+rails db:seed
+```
 
-## 🌟 how to BRANCH
+### Run a server
+```
+rails s
+```
 
-=============================================================
-
-1: "**git checkout master**" to move to MASTER
-
-2: "**git pull origin master**" to update your local master to the latest
-
-3: "**git checkout -b BRANCH-NAME**" to create and move to YOUR OWN BRANCH to work with
-
-4: "**git branch**" to see the list of existing branches
-
-5: Work on stuff in YOUR branch (NOT MASTER!!!)
-
-6: "**git add**" "**git commit**" Make sure you are NOT in MASTER branch
-
-7: "**git push origin BRANCH-NAME**"
-
-8: "**git status**" to make sure the status is CLEAN
-
-9: "**gh browse**" to go to github page on browser and click "Pull request"
-
-10: If there's conflict, discuss with teamates.
-
-11: Lead Dev merges and deletes the branch.
-
-12: "**git checkout master**" to go back to master
-
-13: "**git pull origin master**" to get the latest code
-
-14: "**git sweep**" on your terminal to delete the branch from your local machine
-
-15: "**git branch**" to see if the branch was successfully deleted
-
-===============================================================
-
-## 🎊 If you want load the latest changes into YOUR BRANCH
-
-===============================================================
-
-1: "**git checkout master**" to move to master
-
-2: "**git pull origin master**"
-
-3: "**git checkout YOUR-BRANCH**" to come back to your own branch
-
-4: "**git merge master**"
-
-===============================================================
-
-## ⚠️ In case of conflict
-
-===============================================================
+## Built With
+- [Rails 6](https://guides.rubyonrails.org/) - Backend / Front-end
+- [Stimulus JS](https://stimulus.hotwired.dev/) - Front-end JS
+- [Heroku](https://heroku.com/) - Deployment
+- [PostgreSQL](https://www.postgresql.org/) - Database
+- [Bootstrap](https://getbootstrap.com/) — Styling
+- [Figma](https://www.figma.com) — Prototyping
 
 
+## Team Members
+- [Tirso Pascual](https://www.github.com/tirsop)
+- [Luis Rodriguez](https://www.github.com/luisrrv)
+- [Yuki Harwood](https://www.github.com/yharwood)
+- [Kenji Yanagawa](https://www.github.com/KenjiYANAGAWA)
 
-git status # ⚠️ ⚠️ ⚠️ Make sure it's clean before proceeding
-
-git checkout master
-
-git pull origin master          
-#pull the latest changes
-
-git checkout unmergeable-branch 
-#switch back to your branch
-
-git merge master                
-#merge the new changes from master into your branch
-
-#Open your text editor and solve conflicts (locate them with cmd + shift + f `<<<<<`)
-
-#When solved, we need to finish the merge
-
-git add .                           
-#add the files in conflict
-
-git commit --no-edit                
-#commit using the default commit message
-
-git push origin unmergeable-branch  
-#push our branch again
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
